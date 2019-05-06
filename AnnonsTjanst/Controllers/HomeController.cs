@@ -44,5 +44,11 @@ namespace AnnonsTjanst.Controllers
             ViewBag.Message = result;
             return RedirectToAction("Index");
         }
+        public ActionResult Details(int id)
+        {
+            ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
+            var annons = client.HamtaAnnons(id);
+            return View(annons);
+        }
     }
 }

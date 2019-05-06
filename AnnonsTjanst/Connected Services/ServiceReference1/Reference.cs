@@ -296,6 +296,18 @@ namespace AnnonsTjanst.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
         System.Threading.Tasks.Task<AnnonsTjanst.ServiceReference1.CompositeType> GetDataUsingDataContractAsync(AnnonsTjanst.ServiceReference1.CompositeType composite);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/HamtaSaljAnnonser", ReplyAction="http://tempuri.org/IService1/HamtaSaljAnnonserResponse")]
+        AnnonsTjanst.ServiceReference1.Annonser[] HamtaSaljAnnonser(int profilID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/HamtaSaljAnnonser", ReplyAction="http://tempuri.org/IService1/HamtaSaljAnnonserResponse")]
+        System.Threading.Tasks.Task<AnnonsTjanst.ServiceReference1.Annonser[]> HamtaSaljAnnonserAsync(int profilID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/HamtaAnnons", ReplyAction="http://tempuri.org/IService1/HamtaAnnonsResponse")]
+        AnnonsTjanst.ServiceReference1.Annonser HamtaAnnons(int annonsID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/HamtaAnnons", ReplyAction="http://tempuri.org/IService1/HamtaAnnonsResponse")]
+        System.Threading.Tasks.Task<AnnonsTjanst.ServiceReference1.Annonser> HamtaAnnonsAsync(int annonsID);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -363,6 +375,22 @@ namespace AnnonsTjanst.ServiceReference1 {
         
         public System.Threading.Tasks.Task<AnnonsTjanst.ServiceReference1.CompositeType> GetDataUsingDataContractAsync(AnnonsTjanst.ServiceReference1.CompositeType composite) {
             return base.Channel.GetDataUsingDataContractAsync(composite);
+        }
+        
+        public AnnonsTjanst.ServiceReference1.Annonser[] HamtaSaljAnnonser(int profilID) {
+            return base.Channel.HamtaSaljAnnonser(profilID);
+        }
+        
+        public System.Threading.Tasks.Task<AnnonsTjanst.ServiceReference1.Annonser[]> HamtaSaljAnnonserAsync(int profilID) {
+            return base.Channel.HamtaSaljAnnonserAsync(profilID);
+        }
+        
+        public AnnonsTjanst.ServiceReference1.Annonser HamtaAnnons(int annonsID) {
+            return base.Channel.HamtaAnnons(annonsID);
+        }
+        
+        public System.Threading.Tasks.Task<AnnonsTjanst.ServiceReference1.Annonser> HamtaAnnonsAsync(int annonsID) {
+            return base.Channel.HamtaAnnonsAsync(annonsID);
         }
     }
 }
