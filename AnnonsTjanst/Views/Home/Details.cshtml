@@ -1,0 +1,98 @@
+﻿@model AnnonsTjanst.ServiceReference1.Annonser
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Annonser</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.annonsID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.annonsID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.annonsNamn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.annonsNamn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.beskrivning)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.beskrivning)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.betalningsmetod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.betalningsmetod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bild)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bild)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.datum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.datum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kategori)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kategori)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pris)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pris)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.profilID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.profilID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

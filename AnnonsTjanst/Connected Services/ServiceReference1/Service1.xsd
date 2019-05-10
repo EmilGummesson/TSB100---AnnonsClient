@@ -67,4 +67,32 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="HamtaSaljAnnonser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="profilID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HamtaSaljAnnonserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/AnnonsService" minOccurs="0" name="HamtaSaljAnnonserResult" nillable="true" type="q5:ArrayOfAnnonser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HamtaAnnons">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="annonsID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HamtaAnnonsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/AnnonsService" minOccurs="0" name="HamtaAnnonsResult" nillable="true" type="q6:Annonser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
