@@ -51,11 +51,11 @@ namespace AnnonsTjanst.Controllers
             var annons = client.HamtaAnnons(id);
             return View(annons);
         }
-        public ActionResult kop(int id)
+        public ActionResult Kop(int id)
         {
             ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
             var annons = client.HamtaAnnons(id);
-            annons.status = "sold";//änrraas status till sold
+            annons.status = "Såld";//änrraas status till sold
             client.UppdateraAnnons(annons);
             //return RedirectToAction("http://193.10.202.73/betalningservice/Service1.svc");
             return RedirectToAction("Index");
