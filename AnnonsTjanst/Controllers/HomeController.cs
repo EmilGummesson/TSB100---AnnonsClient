@@ -60,5 +60,18 @@ namespace AnnonsTjanst.Controllers
             //return RedirectToAction("http://193.10.202.73/betalningservice/Service1.svc");
             return RedirectToAction("Index");
         }
+        public ActionResult Edit(int id, ServiceReference1.Annonser annonser)
+        {
+            ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
+            string result = client.UppdateraAnnons(annonser);
+            return View(annonser);
+        }
+        [HttpPost]
+        public ActionResult Edit(ServiceReference1.Annonser annons)
+        {
+            ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
+            string result = client.UppdateraAnnons(annons);
+            return RedirectToAction("Index");
+        }
     }
 }
