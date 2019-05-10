@@ -81,6 +81,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="UppdateraAnnons">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/AnnonsService" minOccurs="0" name="annons" nillable="true" type="q6:Annonser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UppdateraAnnonsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UppdateraAnnonsResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="HamtaAnnons">
     <xs:complexType>
       <xs:sequence>
@@ -91,7 +105,7 @@
   <xs:element name="HamtaAnnonsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/AnnonsService" minOccurs="0" name="HamtaAnnonsResult" nillable="true" type="q6:Annonser" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/AnnonsService" minOccurs="0" name="HamtaAnnonsResult" nillable="true" type="q7:Annonser" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

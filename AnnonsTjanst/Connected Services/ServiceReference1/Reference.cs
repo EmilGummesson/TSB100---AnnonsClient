@@ -303,6 +303,12 @@ namespace AnnonsTjanst.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/HamtaSaljAnnonser", ReplyAction="http://tempuri.org/IService1/HamtaSaljAnnonserResponse")]
         System.Threading.Tasks.Task<AnnonsTjanst.ServiceReference1.Annonser[]> HamtaSaljAnnonserAsync(int profilID);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UppdateraAnnons", ReplyAction="http://tempuri.org/IService1/UppdateraAnnonsResponse")]
+        string UppdateraAnnons(AnnonsTjanst.ServiceReference1.Annonser annons);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UppdateraAnnons", ReplyAction="http://tempuri.org/IService1/UppdateraAnnonsResponse")]
+        System.Threading.Tasks.Task<string> UppdateraAnnonsAsync(AnnonsTjanst.ServiceReference1.Annonser annons);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/HamtaAnnons", ReplyAction="http://tempuri.org/IService1/HamtaAnnonsResponse")]
         AnnonsTjanst.ServiceReference1.Annonser HamtaAnnons(int annonsID);
         
@@ -383,6 +389,14 @@ namespace AnnonsTjanst.ServiceReference1 {
         
         public System.Threading.Tasks.Task<AnnonsTjanst.ServiceReference1.Annonser[]> HamtaSaljAnnonserAsync(int profilID) {
             return base.Channel.HamtaSaljAnnonserAsync(profilID);
+        }
+        
+        public string UppdateraAnnons(AnnonsTjanst.ServiceReference1.Annonser annons) {
+            return base.Channel.UppdateraAnnons(annons);
+        }
+        
+        public System.Threading.Tasks.Task<string> UppdateraAnnonsAsync(AnnonsTjanst.ServiceReference1.Annonser annons) {
+            return base.Channel.UppdateraAnnonsAsync(annons);
         }
         
         public AnnonsTjanst.ServiceReference1.Annonser HamtaAnnons(int annonsID) {
