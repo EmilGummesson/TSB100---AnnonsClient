@@ -23,6 +23,9 @@ namespace AnnonsTjanst.ServiceReference1 {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string adressField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int annonsIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -44,10 +47,19 @@ namespace AnnonsTjanst.ServiceReference1 {
         private string kategoriField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string koparIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ortField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int postNrField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double prisField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int profilIDField;
+        private int saljarIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string statusField;
@@ -59,6 +71,19 @@ namespace AnnonsTjanst.ServiceReference1 {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string adress {
+            get {
+                return this.adressField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.adressField, value) != true)) {
+                    this.adressField = value;
+                    this.RaisePropertyChanged("adress");
+                }
             }
         }
         
@@ -154,6 +179,45 @@ namespace AnnonsTjanst.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string koparID {
+            get {
+                return this.koparIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.koparIDField, value) != true)) {
+                    this.koparIDField = value;
+                    this.RaisePropertyChanged("koparID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ort {
+            get {
+                return this.ortField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ortField, value) != true)) {
+                    this.ortField = value;
+                    this.RaisePropertyChanged("ort");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int postNr {
+            get {
+                return this.postNrField;
+            }
+            set {
+                if ((this.postNrField.Equals(value) != true)) {
+                    this.postNrField = value;
+                    this.RaisePropertyChanged("postNr");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public double pris {
             get {
                 return this.prisField;
@@ -167,14 +231,14 @@ namespace AnnonsTjanst.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int profilID {
+        public int saljarID {
             get {
-                return this.profilIDField;
+                return this.saljarIDField;
             }
             set {
-                if ((this.profilIDField.Equals(value) != true)) {
-                    this.profilIDField = value;
-                    this.RaisePropertyChanged("profilID");
+                if ((this.saljarIDField.Equals(value) != true)) {
+                    this.saljarIDField = value;
+                    this.RaisePropertyChanged("saljarID");
                 }
             }
         }
@@ -298,10 +362,10 @@ namespace AnnonsTjanst.ServiceReference1 {
         System.Threading.Tasks.Task<AnnonsTjanst.ServiceReference1.CompositeType> GetDataUsingDataContractAsync(AnnonsTjanst.ServiceReference1.CompositeType composite);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/HamtaSaljAnnonser", ReplyAction="http://tempuri.org/IService1/HamtaSaljAnnonserResponse")]
-        AnnonsTjanst.ServiceReference1.Annonser[] HamtaSaljAnnonser(int profilID);
+        AnnonsTjanst.ServiceReference1.Annonser[] HamtaSaljAnnonser(int saljarID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/HamtaSaljAnnonser", ReplyAction="http://tempuri.org/IService1/HamtaSaljAnnonserResponse")]
-        System.Threading.Tasks.Task<AnnonsTjanst.ServiceReference1.Annonser[]> HamtaSaljAnnonserAsync(int profilID);
+        System.Threading.Tasks.Task<AnnonsTjanst.ServiceReference1.Annonser[]> HamtaSaljAnnonserAsync(int saljarID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UppdateraAnnons", ReplyAction="http://tempuri.org/IService1/UppdateraAnnonsResponse")]
         string UppdateraAnnons(AnnonsTjanst.ServiceReference1.Annonser annons);
@@ -383,12 +447,12 @@ namespace AnnonsTjanst.ServiceReference1 {
             return base.Channel.GetDataUsingDataContractAsync(composite);
         }
         
-        public AnnonsTjanst.ServiceReference1.Annonser[] HamtaSaljAnnonser(int profilID) {
-            return base.Channel.HamtaSaljAnnonser(profilID);
+        public AnnonsTjanst.ServiceReference1.Annonser[] HamtaSaljAnnonser(int saljarID) {
+            return base.Channel.HamtaSaljAnnonser(saljarID);
         }
         
-        public System.Threading.Tasks.Task<AnnonsTjanst.ServiceReference1.Annonser[]> HamtaSaljAnnonserAsync(int profilID) {
-            return base.Channel.HamtaSaljAnnonserAsync(profilID);
+        public System.Threading.Tasks.Task<AnnonsTjanst.ServiceReference1.Annonser[]> HamtaSaljAnnonserAsync(int saljarID) {
+            return base.Channel.HamtaSaljAnnonserAsync(saljarID);
         }
         
         public string UppdateraAnnons(AnnonsTjanst.ServiceReference1.Annonser annons) {

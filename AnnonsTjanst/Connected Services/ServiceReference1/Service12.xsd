@@ -8,6 +8,7 @@
   <xs:element name="ArrayOfAnnonser" nillable="true" type="tns:ArrayOfAnnonser" />
   <xs:complexType name="Annonser">
     <xs:sequence>
+      <xs:element minOccurs="0" name="adress" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="annonsID" type="xs:int" />
       <xs:element minOccurs="0" name="annonsNamn" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="beskrivning" nillable="true" type="xs:string" />
@@ -15,8 +16,11 @@
       <xs:element minOccurs="0" name="bild" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="datum" type="xs:dateTime" />
       <xs:element minOccurs="0" name="kategori" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="koparID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ort" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="postNr" type="xs:int" />
       <xs:element minOccurs="0" name="pris" type="xs:double" />
-      <xs:element minOccurs="0" name="profilID" type="xs:int" />
+      <xs:element minOccurs="0" name="saljarID" type="xs:int" />
       <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>

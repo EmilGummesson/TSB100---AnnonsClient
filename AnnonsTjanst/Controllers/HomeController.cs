@@ -40,6 +40,7 @@ namespace AnnonsTjanst.Controllers
         {
             ViewBag.Message = "Your contact page.";
             ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
+            annons.datum = DateTime.Now;
             annons.status = "Till Salu";//ändrar status till salu
             string result = client.SkapaAnnons(annons);
             ViewBag.Message = result;

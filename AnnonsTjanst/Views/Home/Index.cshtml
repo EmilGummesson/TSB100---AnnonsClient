@@ -9,13 +9,15 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-@ViewBag.message
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.adress)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.annonsID)
         </th>
-        <th> 
+        <th>
             @Html.DisplayNameFor(model => model.annonsNamn)
         </th>
         <th>
@@ -34,10 +36,19 @@
             @Html.DisplayNameFor(model => model.kategori)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.koparID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ort)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.postNr)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.pris)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.profilID)
+            @Html.DisplayNameFor(model => model.saljarID)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.status)
@@ -47,8 +58,11 @@
 
 @foreach (var item in Model) {
     if (item.status != "Såld")
-    {
+    { 
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.adress)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.annonsID)
         </td>
@@ -71,17 +85,26 @@
             @Html.DisplayFor(modelItem => item.kategori)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.koparID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ort)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.postNr)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.pris)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.profilID)
+            @Html.DisplayFor(modelItem => item.saljarID)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.status)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new {id = item.annonsID}) |
-            @Html.ActionLink("Details", "Details", new { id = item.annonsID }) |
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
             @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
         </td>
     </tr>
