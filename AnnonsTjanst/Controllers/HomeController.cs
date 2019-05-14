@@ -64,8 +64,8 @@ namespace AnnonsTjanst.Controllers
         public ActionResult Edit(int id, ServiceReference1.Annonser annonser)
         {
             ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
-            string result = client.UppdateraAnnons(annonser);
-            return View(annonser);
+            var result = client.HamtaAnnons(id);
+            return View(result);
         }
         [HttpPost]
         public ActionResult Edit(ServiceReference1.Annonser annons)
