@@ -24,7 +24,7 @@ namespace AnnonsTjanst.Controllers
             annons.status = "Till Salu";//ändrar status till salu
             string result = client.SkapaAnnons(annons);
             ViewBag.Message = result;
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Home");
         }
         public ActionResult Detaljer(int id)
         {
@@ -39,7 +39,7 @@ namespace AnnonsTjanst.Controllers
             annons.status = "Såld";//änrraas status till sold
             client.UppdateraAnnons(annons);
             //return RedirectToAction("http://193.10.202.73/betalningservice/Service1.svc");
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Home");
         }
         public ActionResult Redigera(int id, ServiceReference1.Annonser annonser)
         {
@@ -52,7 +52,7 @@ namespace AnnonsTjanst.Controllers
         {
             ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
             string result = client.UppdateraAnnons(annons);
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Home");
         }
     }
 }
