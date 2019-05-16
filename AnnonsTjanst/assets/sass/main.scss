@@ -1,0 +1,85 @@
+/*+---------------------------------------------------------------------+
+  | style: GUI                                                          |
+  | com: sass --watch sass/main.scss css/main.css                       |
+  | by: Grupp 5                                                         |
+  +---------------------------------------------------------------------+*/
+
+// GET Bootstrap
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+// FONTS
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700');
+
+
+// MY COLORS
+$primary-front-color: #1cadda;
+$primary-background-color: #ffffff;
+$primary-dark-color: #000000;
+
+//GUI
+html, body{
+    padding: 0;
+    margin: 0;
+    font-family: 'Open Sans', "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+h1, h2, h3, h4, h5, h6, h7, h8{
+    font-family: 'Raleway', 'Open Sans', "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+//Navbar
+.active{
+    border-radius: 0;
+    border-bottom: 0.1rem solid $primary-background-color;
+}
+nav{
+    padding: 1.5rem 1rem !important;
+    background-color: #1cadda !important;
+    margin-bottom: 1rem;
+
+    button{
+        border-radius: 0 !important;
+    }
+    div{
+        ul{
+            li{
+                a{
+                    color: darken($primary-background-color, 10%) !important;
+                    &:hover{
+                        color: $primary-background-color !important;
+                    }
+                }
+            }
+            .active{
+                a{
+                    color: $primary-background-color !important ;
+                }
+            }
+        }
+    }
+}
+.nav-head{
+    height: 5rem;
+    width: 7rem;
+}
+article{
+    background-color: $primary-background-color;
+    text-align: justify;
+}
+@media (max-width: 768px) {
+    .nav-head{
+        height: 3rem;
+        width: 4rem;
+    }
+    .active{
+        border-bottom: none;
+        border-left: 0.1rem solid $primary-background-color;
+        padding-left: 0.1rem;
+        color: $primary-background-color !important;
+    }
+    nav{
+        padding: 1rem 1rem !important;
+        div{
+            margin-top: 1rem;
+        }
+    }
+}

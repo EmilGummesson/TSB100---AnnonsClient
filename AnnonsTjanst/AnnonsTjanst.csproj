@@ -162,12 +162,20 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\css\main.css" />
+    <Content Include="assets\img\handshake-logo-1.png" />
+    <Content Include="assets\img\handshake-logo-2.png" />
     <Content Include="Connected Services\ServiceReference1\AnnonsTjanst.ServiceReference1.CompositeType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\ServiceReference1\AnnonsTjanst.ServiceReference1.Annonser.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="assets\.DS_Store" />
+    <Content Include="assets\css\.DS_Store" />
+    <Content Include="assets\css\main.css.map" />
+    <Content Include="assets\sass\.DS_Store" />
+    <Content Include="assets\sass\main.scss" />
     <None Include="Connected Services\ServiceReference1\Service1.disco" />
     <None Include="Connected Services\ServiceReference1\configuration91.svcinfo" />
     <None Include="Connected Services\ServiceReference1\configuration.svcinfo" />

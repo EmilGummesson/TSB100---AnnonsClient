@@ -103,8 +103,8 @@
             @Html.DisplayFor(modelItem => item.status)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Redigera", "Annons", new { id=item.annonsID }, null) |
-            @Html.ActionLink("Details", "Detaljer", "Annons", new { id=item.annonsID}, null) |
+            <button class="btn btn-default border-dark" style="background:#3BD1FF"> @Html.ActionLink("Edit", "Redigera", "Annons", new { id = item.annonsID }, null)</button> 
+            <button class="btn btn-default border-dark" style="background:#3BD1FF"> @Html.ActionLink("Details", "Detaljer", "Annons", new { id = item.annonsID }, null)</button> 
         </td>
     </tr>
     }
