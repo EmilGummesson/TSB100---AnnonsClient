@@ -21,6 +21,7 @@ namespace AnnonsTjanst.Controllers
             ViewBag.Message = "Your contact page.";
             ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
             annons.datum = DateTime.Now;
+            annons.betalningsmetod = "NA";
             annons.status = "Till Salu";//ändrar status till salu
             string result = client.SkapaAnnons(annons);
             ViewBag.Message = result;
@@ -51,8 +52,10 @@ namespace AnnonsTjanst.Controllers
         public ActionResult Redigera(ServiceReference1.Annonser annons)
         {
             ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
-            string result = client.UppdateraAnnons(annons);
+            var result = client.UppdateraAnnons(annons);
             return RedirectToAction("Index", "Home");
         }
+
+
     }
 }

@@ -4,30 +4,12 @@
     ViewBag.Title = "Detaljer";
 }
 
-<h2>Details</h2>
-
 <div>
-    <h4>Annonser</h4>
+    <h4>Annons</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.adress)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.adress)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.annonsID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.annonsID)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.annonsNamn)
+            Vara
         </dt>
 
         <dd>
@@ -35,7 +17,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.beskrivning)
+           Beskrivning
         </dt>
 
         <dd>
@@ -43,15 +25,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.betalningsmetod)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.betalningsmetod)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.bild)
+            Bild
         </dt>
 
         <dd>
@@ -59,15 +33,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.datum)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.datum)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.kategori)
+            Kategori
         </dt>
 
         <dd>
@@ -75,31 +41,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.koparID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.koparID)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ort)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ort)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.postNr)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.postNr)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.pris)
+            Pris
         </dt>
 
         <dd>
@@ -107,7 +49,63 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.saljarID)
+            Betalningsmetod
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.betalningsmetod)
+        </dd>
+
+        <dt>
+            Ort
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ort)
+        </dd>
+
+        <dt>
+            Adress
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.adress)
+        </dd>
+
+        <dt>
+            Postnummer
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.postNr)
+        </dd>
+
+        <dt>
+            Datum
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.datum)
+        </dd>
+
+        <dt>
+            Status
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+        <dt>
+            Köpare
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.koparID)
+        </dd>
+
+        <dt>
+            Säljare
         </dt>
 
         <dd>
@@ -115,17 +113,17 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.status)
+            AnnonsID
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.status)
+            @Html.DisplayFor(model => model.annonsID)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Köp", "Kop", new { id = Model.annonsID })
-    @Html.ActionLink("Edit", "Edit", new { id = Model.annonsID }) |
-    @Html.ActionLink("Back to List", "Index","Home")
+    <button class="btn btn-default border-dark" style="background:#3BD1FF">@Html.ActionLink("Köp", "Kop", new { id = Model.annonsID })</button>
+    <button class="btn btn-default border-dark" style="background:#3BD1FF">@Html.ActionLink("Redigera", "Edit", new { id = Model.annonsID })</button>
+    <button class="btn btn-default border-dark" style="background:#3BD1FF">@Html.ActionLink("Tillbaka till annonserna", "Index","Home")</button>
 </p>

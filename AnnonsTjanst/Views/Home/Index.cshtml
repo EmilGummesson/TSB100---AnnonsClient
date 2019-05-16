@@ -4,54 +4,52 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
 <p>
-    @Html.ActionLink("Lägg till ny annons", "Skapa", "Annons")
+    <button class="btn btn-default border-dark" style="background:#3BD1FF"> @Html.ActionLink("Lägg till ny annons", "Skapa", "Annons")</button>
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.adress)
+            Vara
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.annonsID)
+            Beskrivning
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.annonsNamn)
+            Bild
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.beskrivning)
+           Kategori
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.betalningsmetod)
+            Pris
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.bild)
+            Betalningsmetod
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.datum)
+            Ort
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.kategori)
+            Adress
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.koparID)
+            Postnummer
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ort)
+            Datum
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.postNr)
+            Status
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.pris)
+            Köpare
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.saljarID)
+            Säljare
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.status)
+            AnnonsID
         </th>
         <th></th>
     </tr>
@@ -61,50 +59,50 @@
     { 
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.adress)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.annonsID)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.annonsNamn)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.beskrivning)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.betalningsmetod)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.bild)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.datum)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.kategori)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.koparID)
+            @Html.DisplayFor(modelItem => item.pris)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.betalningsmetod)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ort)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.adress)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.postNr)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.pris)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.saljarID)
+            @Html.DisplayFor(modelItem => item.datum)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.status)
         </td>
         <td>
-            <button class="btn btn-default border-dark" style="background:#3BD1FF"> @Html.ActionLink("Edit", "Redigera", "Annons", new { id = item.annonsID }, null)</button> 
-            <button class="btn btn-default border-dark" style="background:#3BD1FF"> @Html.ActionLink("Details", "Detaljer", "Annons", new { id = item.annonsID }, null)</button> 
+            @Html.DisplayFor(modelItem => item.koparID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.saljarID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.annonsID)
+        </td>
+        <td>
+            <button class="btn btn-default border-dark" style="background:#3BD1FF"> @Html.ActionLink("Redigera", "Redigera", "Annons", new { id = item.annonsID }, null)</button> 
+            <button class="btn btn-default border-dark" style="background:#3BD1FF"> @Html.ActionLink("Detaljer", "Detaljer", "Annons", new { id = item.annonsID }, null)</button> 
         </td>
     </tr>
     }
