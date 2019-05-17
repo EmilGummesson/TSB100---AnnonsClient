@@ -28,6 +28,26 @@ namespace AnnonsTjanst.Controllers
             return View();
         }
 
-        
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(string anvNamn, string losOrd)
+        {
+            //Sätter behörighet till standard || användarnamn och lösenord är båda "test".
+            string beHet = "standard";
+            LoginService.InloggningServiceClient logclient = new LoginService.InloggningServiceClient();
+
+            if (anvNamn == null || losOrd == null)
+            {
+                ModelState.AddModelError("", "Du måste ange användarnamn och lösenord");
+                return View();
+            }
+            //Lägg till resten av grejerna här, går och lägger mig.
+            //logclient.LoggaIn skall returnera "null" vid misslyckad inloggning. Annars returneras objektet "anvandare".
+            return RedirectToAction("Index");
+        }
     }
 }

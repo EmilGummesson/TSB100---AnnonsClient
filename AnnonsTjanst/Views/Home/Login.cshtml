@@ -1,0 +1,9 @@
+﻿<h2>Logga In</h2>
+
+@using (Html.BeginForm())
+{
+
+    @Html.TextBox("anvNamn", null, new { @class = "form-control" })
+    @Html.TextBox("losOrd", null, new { @class = "form-control" })
+    <input type="submit" value="Logga in" class="btn btn-default" />
+}
