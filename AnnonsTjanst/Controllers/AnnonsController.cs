@@ -22,7 +22,7 @@ namespace AnnonsTjanst.Controllers
             ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
             annons.datum = DateTime.Now;
             annons.betalningsmetod = "NA";
-            annons.status = "Till Salu";//ändrar status till salu
+            annons.status = "Till Salu";//ändrar status till "Till Salu"
             string result = client.SkapaAnnons(annons);
             ViewBag.Message = result;
             return RedirectToAction("Index", "Home");
@@ -30,14 +30,18 @@ namespace AnnonsTjanst.Controllers
         public ActionResult Detaljer(int id)
         {
             ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
+            LoginService.InloggningServiceClient logclient = new LoginService.InloggningServiceClient();
             var annons = client.HamtaAnnons(id);
+            //Hämtar användarnamn från objekt av Användare. Tar id som inparameter.
+            var anvandarNamn = logclient.VisaAnvandarInfoId(13137).Anvandarnamn;
+            ViewBag.anvandarNamn = anvandarNamn;
             return View(annons);
         }
         public ActionResult Kop(int id)
         {
             ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
             var annons = client.HamtaAnnons(id);
-            annons.status = "Såld";//änrraas status till sold
+            annons.status = "Såld";//ändrar status till "Såld"
             client.UppdateraAnnons(annons);
             //return RedirectToAction("http://193.10.202.73/betalningservice/Service1.svc");
             return RedirectToAction("Index", "Home");
