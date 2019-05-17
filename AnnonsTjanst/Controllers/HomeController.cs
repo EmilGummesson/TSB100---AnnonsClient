@@ -8,8 +8,7 @@ namespace AnnonsTjanst.Controllers
 {
     public class HomeController : Controller
     {
-       
-        
+
         public ActionResult Index(int? idin)
         {
             if (idin == null)
@@ -18,8 +17,8 @@ namespace AnnonsTjanst.Controllers
                 {
                     int id = 11;
                     loginReferences.InloggningServiceClient logclient = new loginReferences.InloggningServiceClient();
-                    //id = int.Parse(Session["profilId"]);ut komenterad kod pga problem med sekson
-                    var anvendare = logclient.VisaAnvandarInfoId(id);
+                    id = ((int)Session["profilId"]);//ut komenterad kod pga problem med sekson   Convert.ToInt32(id1.Text);
+                    var anvendare = logclient.VisaAnvandarInfoId(1337);
                     ViewBag.medalande = anvendare.Anvandarnamn;
                 }
                 catch
@@ -35,6 +34,8 @@ namespace AnnonsTjanst.Controllers
                 {
                     Session["profilId"] = id;
                     var anvendare = logclient.VisaAnvandarInfoId(id);
+                    string test = anvendare.Anvandarnamn;
+
                 }
             }
             ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
@@ -59,7 +60,9 @@ namespace AnnonsTjanst.Controllers
             var anvinfo = logclient.LoggaIn(anvandarnamn, losenord, behorrighet);
             if (anvinfo != null)
             {
-                Session["profilId"] = anvinfo.Id.ToString();
+
+                Session["profilId"] = Convert.ToInt32(anvinfo.ProfilId.ToString()); //) ["profilId"] = Convert.ToInt32(anvinfo.ProfilId.ToString());
+                
             }
             return RedirectToAction("Index");
         }
