@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "logain";
+}
+
+<h2>logain</h2>
+
+@using (Html.BeginForm())
+{
+
+    @Html.TextBox("anvandarnamn", null, new { @class = "form-control" })
+    @Html.TextBox("losenord", null, new { @class = "form-control" })
+    @Html.TextBox("losenord", null, new { @class = "form-control" })
+    <input type="submit" value="loganin" class="btn btn-default" />
+
+}

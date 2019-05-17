@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://193.10.202.71/Inloggning/InloggningService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Inloggning" />
+  <xs:element name="TestaAnslutning">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TestaAnslutningResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TestaAnslutningResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoggaIn">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="anvandarNamn" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="losenord" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="behorighet" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoggaInResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Inloggning" minOccurs="0" name="LoggaInResult" nillable="true" type="q1:Anvandare" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SkapaSession">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="profilId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SkapaSessionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SkapaSessionResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoggaUt">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="anvandarId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoggaUtResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoggaUtResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistreraAnvandare">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="anvandarNamn" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="losenord" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="profilID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistreraAnvandareResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RegistreraAnvandareResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VisaAnvandarInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="anvandarNamn" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VisaAnvandarInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Inloggning" minOccurs="0" name="VisaAnvandarInfoResult" nillable="true" type="q2:Anvandare" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VisaAnvandarInfoId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="profilId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VisaAnvandarInfoIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Inloggning" minOccurs="0" name="VisaAnvandarInfoIdResult" nillable="true" type="q3:Anvandare" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AndraLosenord">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="anvandarId" type="xs:int" />
+        <xs:element minOccurs="0" name="losenordGammal" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="losenordNytt" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AndraLosenordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AndraLosenordResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HamtaAllaAnvandare">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HamtaAllaAnvandareResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Inloggning" minOccurs="0" name="HamtaAllaAnvandareResult" nillable="true" type="q4:ArrayOfAnvandare" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistreraAdmin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="anvandarNamn" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="losenord" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="behorighet" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistreraAdminResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RegistreraAdminResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AndraBehorighet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="anvandarId" type="xs:int" />
+        <xs:element minOccurs="0" name="behorighet" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AndraBehorighetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AndraBehorighetResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerifieraInloggning">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="profilId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerifieraInloggningResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="VerifieraInloggningResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TaBortAnvandare">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="anvandarId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TaBortAnvandareResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TaBortAnvandareResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

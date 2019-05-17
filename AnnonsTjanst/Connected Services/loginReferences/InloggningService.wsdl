@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="InloggningService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://193.10.202.71/Inloggning/InloggningService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://193.10.202.71/Inloggning/InloggningService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://193.10.202.71/Inloggning/InloggningService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Inloggning" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IInloggningService_TestaAnslutning_InputMessage">
+    <wsdl:part name="parameters" element="tns:TestaAnslutning" />
+  </wsdl:message>
+  <wsdl:message name="IInloggningService_TestaAnslutning_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TestaAnslutningResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInloggningService_LoggaIn_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoggaIn" />
+  </wsdl:message>
+  <wsdl:message name="IInloggningService_LoggaIn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoggaInResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInloggningService_SkapaSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:SkapaSession" />
+  </wsdl:message>
+  <wsdl:message name="IInloggningService_SkapaSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SkapaSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInloggningService_LoggaUt_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoggaUt" />
+  </wsdl:message>
+  <wsdl:message name="IInloggningService_LoggaUt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoggaUtResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInloggningService_RegistreraAnvandare_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegistreraAnvandare" />
+  </wsdl:message>
+  <wsdl:message name="IInloggningService_RegistreraAnvandare_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistreraAnvandareResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInloggningService_VisaAnvandarInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:VisaAnvandarInfo" />
+  </wsdl:message>
+  <wsdl:message name="IInloggningService_VisaAnvandarInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VisaAnvandarInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInloggningService_VisaAnvandarInfoId_InputMessage">
+    <wsdl:part name="parameters" element="tns:VisaAnvandarInfoId" />
+  </wsdl:message>
+  <wsdl:message name="IInloggningService_VisaAnvandarInfoId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VisaAnvandarInfoIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInloggningService_AndraLosenord_InputMessage">
+    <wsdl:part name="parameters" element="tns:AndraLosenord" />
+  </wsdl:message>
+  <wsdl:message name="IInloggningService_AndraLosenord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AndraLosenordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInloggningService_HamtaAllaAnvandare_InputMessage">
+    <wsdl:part name="parameters" element="tns:HamtaAllaAnvandare" />
+  </wsdl:message>
+  <wsdl:message name="IInloggningService_HamtaAllaAnvandare_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HamtaAllaAnvandareResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInloggningService_RegistreraAdmin_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegistreraAdmin" />
+  </wsdl:message>
+  <wsdl:message name="IInloggningService_RegistreraAdmin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistreraAdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInloggningService_AndraBehorighet_InputMessage">
+    <wsdl:part name="parameters" element="tns:AndraBehorighet" />
+  </wsdl:message>
+  <wsdl:message name="IInloggningService_AndraBehorighet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AndraBehorighetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInloggningService_VerifieraInloggning_InputMessage">
+    <wsdl:part name="parameters" element="tns:VerifieraInloggning" />
+  </wsdl:message>
+  <wsdl:message name="IInloggningService_VerifieraInloggning_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VerifieraInloggningResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInloggningService_TaBortAnvandare_InputMessage">
+    <wsdl:part name="parameters" element="tns:TaBortAnvandare" />
+  </wsdl:message>
+  <wsdl:message name="IInloggningService_TaBortAnvandare_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TaBortAnvandareResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IInloggningService">
+    <wsdl:operation name="TestaAnslutning">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInloggningService/TestaAnslutning" message="tns:IInloggningService_TestaAnslutning_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInloggningService/TestaAnslutningResponse" message="tns:IInloggningService_TestaAnslutning_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoggaIn">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInloggningService/LoggaIn" message="tns:IInloggningService_LoggaIn_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInloggningService/LoggaInResponse" message="tns:IInloggningService_LoggaIn_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SkapaSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInloggningService/SkapaSession" message="tns:IInloggningService_SkapaSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInloggningService/SkapaSessionResponse" message="tns:IInloggningService_SkapaSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoggaUt">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInloggningService/LoggaUt" message="tns:IInloggningService_LoggaUt_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInloggningService/LoggaUtResponse" message="tns:IInloggningService_LoggaUt_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistreraAnvandare">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInloggningService/RegistreraAnvandare" message="tns:IInloggningService_RegistreraAnvandare_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInloggningService/RegistreraAnvandareResponse" message="tns:IInloggningService_RegistreraAnvandare_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VisaAnvandarInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInloggningService/VisaAnvandarInfo" message="tns:IInloggningService_VisaAnvandarInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInloggningService/VisaAnvandarInfoResponse" message="tns:IInloggningService_VisaAnvandarInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VisaAnvandarInfoId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInloggningService/VisaAnvandarInfoId" message="tns:IInloggningService_VisaAnvandarInfoId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInloggningService/VisaAnvandarInfoIdResponse" message="tns:IInloggningService_VisaAnvandarInfoId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AndraLosenord">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInloggningService/AndraLosenord" message="tns:IInloggningService_AndraLosenord_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInloggningService/AndraLosenordResponse" message="tns:IInloggningService_AndraLosenord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="HamtaAllaAnvandare">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInloggningService/HamtaAllaAnvandare" message="tns:IInloggningService_HamtaAllaAnvandare_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInloggningService/HamtaAllaAnvandareResponse" message="tns:IInloggningService_HamtaAllaAnvandare_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistreraAdmin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInloggningService/RegistreraAdmin" message="tns:IInloggningService_RegistreraAdmin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInloggningService/RegistreraAdminResponse" message="tns:IInloggningService_RegistreraAdmin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AndraBehorighet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInloggningService/AndraBehorighet" message="tns:IInloggningService_AndraBehorighet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInloggningService/AndraBehorighetResponse" message="tns:IInloggningService_AndraBehorighet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifieraInloggning">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInloggningService/VerifieraInloggning" message="tns:IInloggningService_VerifieraInloggning_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInloggningService/VerifieraInloggningResponse" message="tns:IInloggningService_VerifieraInloggning_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TaBortAnvandare">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInloggningService/TaBortAnvandare" message="tns:IInloggningService_TaBortAnvandare_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInloggningService/TaBortAnvandareResponse" message="tns:IInloggningService_TaBortAnvandare_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IInloggningService" type="tns:IInloggningService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TestaAnslutning">
+      <soap:operation soapAction="http://tempuri.org/IInloggningService/TestaAnslutning" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoggaIn">
+      <soap:operation soapAction="http://tempuri.org/IInloggningService/LoggaIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SkapaSession">
+      <soap:operation soapAction="http://tempuri.org/IInloggningService/SkapaSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoggaUt">
+      <soap:operation soapAction="http://tempuri.org/IInloggningService/LoggaUt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistreraAnvandare">
+      <soap:operation soapAction="http://tempuri.org/IInloggningService/RegistreraAnvandare" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VisaAnvandarInfo">
+      <soap:operation soapAction="http://tempuri.org/IInloggningService/VisaAnvandarInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VisaAnvandarInfoId">
+      <soap:operation soapAction="http://tempuri.org/IInloggningService/VisaAnvandarInfoId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AndraLosenord">
+      <soap:operation soapAction="http://tempuri.org/IInloggningService/AndraLosenord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HamtaAllaAnvandare">
+      <soap:operation soapAction="http://tempuri.org/IInloggningService/HamtaAllaAnvandare" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistreraAdmin">
+      <soap:operation soapAction="http://tempuri.org/IInloggningService/RegistreraAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AndraBehorighet">
+      <soap:operation soapAction="http://tempuri.org/IInloggningService/AndraBehorighet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerifieraInloggning">
+      <soap:operation soapAction="http://tempuri.org/IInloggningService/VerifieraInloggning" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TaBortAnvandare">
+      <soap:operation soapAction="http://tempuri.org/IInloggningService/TaBortAnvandare" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="InloggningService">
+    <wsdl:port name="BasicHttpBinding_IInloggningService" binding="tns:BasicHttpBinding_IInloggningService">
+      <soap:address location="http://193.10.202.71/Inloggning/InloggningService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

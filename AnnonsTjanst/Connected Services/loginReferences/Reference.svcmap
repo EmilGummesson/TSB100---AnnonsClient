@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="8989a3ce-04b2-4357-83d2-a8042b2c1688" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://193.10.202.71/Inloggning/InloggningService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="InloggningService.disco" MetadataType="Disco" ID="74253251-60df-402d-9bb9-ccd31194fca5" SourceId="1" SourceUrl="http://193.10.202.71/Inloggning/InloggningService.svc?disco" />
+    <MetadataFile FileName="InloggningService.xsd" MetadataType="Schema" ID="1e29847f-c77f-47ff-8d5b-a5547d617ea3" SourceId="1" SourceUrl="http://193.10.202.71/Inloggning/InloggningService.svc?xsd=xsd2" />
+    <MetadataFile FileName="InloggningService1.xsd" MetadataType="Schema" ID="93586b6e-996f-457b-b19c-10d5b8103399" SourceId="1" SourceUrl="http://193.10.202.71/Inloggning/InloggningService.svc?xsd=xsd1" />
+    <MetadataFile FileName="InloggningService.wsdl" MetadataType="Wsdl" ID="e4200f85-6935-4be8-aaa5-893ed05887d9" SourceId="1" SourceUrl="http://193.10.202.71/Inloggning/InloggningService.svc?wsdl" />
+    <MetadataFile FileName="InloggningService2.xsd" MetadataType="Schema" ID="5a5b4306-2881-46d3-9661-603f7dbb9eca" SourceId="1" SourceUrl="http://193.10.202.71/Inloggning/InloggningService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
