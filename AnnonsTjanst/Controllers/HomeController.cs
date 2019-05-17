@@ -8,6 +8,7 @@ namespace AnnonsTjanst.Controllers
 {
     public class HomeController : Controller
     {
+        
 
         public ActionResult Index(int? idin)
         {
@@ -17,9 +18,21 @@ namespace AnnonsTjanst.Controllers
                 {
                     int id = 11;
                     loginReferences.InloggningServiceClient logclient = new loginReferences.InloggningServiceClient();
-                    id = ((int)Session["profilId"]);//ut komenterad kod pga problem med sekson   Convert.ToInt32(id1.Text);
-                    var anvendare = logclient.VisaAnvandarInfoId(1337);
-                    ViewBag.medalande = anvendare.Anvandarnamn;
+                    if (Session["profilId"] != null)
+                    {
+                        //Converting your session variable value to integer
+                        id = ((int)Session["profilId"]);//ut komenterad kod pga problem med sekson   Convert.ToInt32(id1.Text);
+                        var anvendare = logclient.VisaAnvandarInfoId(id);
+                        ViewBag.medalande = anvendare.Anvandarnamn;
+                    }
+                    else
+                    {
+                        var hej = "hejsan";
+                        Console.Beep();
+                        Console.BackgroundColor = System.ConsoleColor.Black;
+                        Console.CursorSize = 200;
+                    }
+
                 }
                 catch
                 {
@@ -61,8 +74,8 @@ namespace AnnonsTjanst.Controllers
             if (anvinfo != null)
             {
 
-                Session["profilId"] = Convert.ToInt32(anvinfo.ProfilId.ToString()); //) ["profilId"] = Convert.ToInt32(anvinfo.ProfilId.ToString());
-                
+                Session["profilId"] = anvinfo.ProfilId.ToString(); //) ["profilId"] = Convert.ToInt32(anvinfo.ProfilId.ToString());
+                Session["inlogad"] = "true";
             }
             return RedirectToAction("Index");
         }
