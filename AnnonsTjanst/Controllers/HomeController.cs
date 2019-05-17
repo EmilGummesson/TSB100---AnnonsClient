@@ -8,7 +8,8 @@ namespace AnnonsTjanst.Controllers
 {
     public class HomeController : Controller
     {
-        
+
+
 
         public ActionResult Index(int? idin)
         {
@@ -21,7 +22,8 @@ namespace AnnonsTjanst.Controllers
                     if (Session["profilId"] != null)
                     {
                         //Converting your session variable value to integer
-                        id = ((int)Session["profilId"]);//ut komenterad kod pga problem med sekson   Convert.ToInt32(id1.Text);
+                        var test = Session["profilId"];
+                        id = Convert.ToInt32(Session["profilId"]);//ut komenterad kod pga problem med sekson   Convert.ToInt32(id1.Text); ((int)Session["profilId"]);
                         var anvendare = logclient.VisaAnvandarInfoId(id);
                         ViewBag.medalande = anvendare.Anvandarnamn;
                     }

@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Index";
 }
-
+<label>Total Students:</label>  @ViewBag.medalande
 <p>
     <button class="btn btn-default border-dark" style="background:#3BD1FF"> @Html.ActionLink("Lägg till ny annons", "Skapa", "Annons")</button>
     <button class="btn btn-default border-dark" style="background:#3BD1FF"> @Html.ActionLink("logain", "logain")</button>
@@ -20,7 +20,7 @@
             Bild
         </th>
         <th>
-           Kategori
+            Kategori
         </th>
         <th>
             Pris
@@ -55,58 +55,59 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    if (item.status != "Såld")
-    { 
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.annonsNamn)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.beskrivning)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.bild)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.kategori)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.pris)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.betalningsmetod)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ort)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.adress)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.postNr)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.datum)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.koparID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.saljarID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.annonsID)
-        </td>
-        <td>
-            <button class="btn btn-default border-dark" style="background:#3BD1FF"> @Html.ActionLink("Redigera", "Redigera", "Annons", new { id = item.annonsID }, null)</button> 
-            <button class="btn btn-default border-dark" style="background:#3BD1FF"> @Html.ActionLink("Detaljer", "Detaljer", "Annons", new { id = item.annonsID }, null)</button> 
-        </td>
-    </tr>
+    @foreach (var item in Model)
+    {
+        if (item.status != "Såld")
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.annonsNamn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.beskrivning)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.bild)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.kategori)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.pris)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.betalningsmetod)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ort)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.adress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.postNr)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.datum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.koparID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.saljarID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.annonsID)
+                </td>
+                <td>
+                    <button class="btn btn-default border-dark" style="background:#3BD1FF"> @Html.ActionLink("Redigera", "Redigera", "Annons", new { id = item.annonsID }, null)</button>
+                    <button class="btn btn-default border-dark" style="background:#3BD1FF"> @Html.ActionLink("Detaljer", "Detaljer", "Annons", new { id = item.annonsID }, null)</button>
+                </td>
+            </tr>
+        }
     }
-}
 
 </table>
