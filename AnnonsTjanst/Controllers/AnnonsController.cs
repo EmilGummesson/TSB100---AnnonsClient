@@ -33,7 +33,11 @@ namespace AnnonsTjanst.Controllers
             LoginService.InloggningServiceClient logclient = new LoginService.InloggningServiceClient();
             var annons = client.HamtaAnnons(id);
             //Hämtar användarnamn från objekt av Användare. Tar id som inparameter.
-            var anvandarNamn = logclient.VisaAnvandarInfoId(13137).Anvandarnamn;
+            var anvandarNamn = logclient.VisaAnvandarInfoId(client.HamtaAnnons(id).saljarID).Anvandarnamn;
+            if (anvandarNamn == null)
+            {
+                anvandarNamn = "Säljaren kunde inte hittas";
+            }
             ViewBag.anvandarNamn = anvandarNamn;
             return View(annons);
         }
