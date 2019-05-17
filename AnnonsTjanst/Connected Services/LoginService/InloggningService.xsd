@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Inloggning" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Inloggning" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Anvandare">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Anvandarnamn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Behorighet" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Losenord" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProfilId" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Anvandare" nillable="true" type="tns:Anvandare" />
+  <xs:complexType name="ArrayOfAnvandare">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Anvandare" nillable="true" type="tns:Anvandare" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAnvandare" nillable="true" type="tns:ArrayOfAnvandare" />
+</xs:schema>

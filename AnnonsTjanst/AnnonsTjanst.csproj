@@ -144,6 +144,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Connected Services\LoginService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ServiceReference1\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -165,6 +170,16 @@
     <Content Include="assets\css\main.css" />
     <Content Include="assets\img\handshake-logo-1.png" />
     <Content Include="assets\img\handshake-logo-2.png" />
+    <Content Include="Connected Services\LoginService\AnnonsTjanst.LoginService.Anvandare.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\LoginService\InloggningService.disco" />
+    <None Include="Connected Services\LoginService\configuration91.svcinfo" />
+    <None Include="Connected Services\LoginService\configuration.svcinfo" />
+    <None Include="Connected Services\LoginService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Connected Services\ServiceReference1\AnnonsTjanst.ServiceReference1.CompositeType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -176,6 +191,16 @@
     <Content Include="assets\css\main.css.map" />
     <Content Include="assets\sass\.DS_Store" />
     <Content Include="assets\sass\main.scss" />
+    <None Include="Connected Services\LoginService\InloggningService.wsdl" />
+    <None Include="Connected Services\LoginService\InloggningService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\LoginService\InloggningService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\LoginService\InloggningService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ServiceReference1\Service1.disco" />
     <None Include="Connected Services\ServiceReference1\configuration91.svcinfo" />
     <None Include="Connected Services\ServiceReference1\configuration.svcinfo" />
@@ -276,6 +301,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\LoginService\" />
     <WCFMetadataStorage Include="Connected Services\ServiceReference1\" />
     <WCFMetadataStorage Include="Connected Services\ServiceReference2\" />
   </ItemGroup>
