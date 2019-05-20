@@ -50,8 +50,11 @@ namespace AnnonsTjanst.Controllers
         public ActionResult Kop(int id)
         {
             ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
+            LoginService.InloggningServiceClient logclient = new LoginService.InloggningServiceClient();
             var annons = client.HamtaAnnons(id);
             annons.status = "Såld";//ändrar status till "Såld"
+            //annons.koparID = logclient.VisaAnvandarInfo(User.Identity.Name).ProfilId;
+            annons.koparID = User.Identity.Name;
             client.UppdateraAnnons(annons);
             //return RedirectToAction("http://193.10.202.73/betalningservice/Service1.svc");
             return RedirectToAction("Index", "Home");
