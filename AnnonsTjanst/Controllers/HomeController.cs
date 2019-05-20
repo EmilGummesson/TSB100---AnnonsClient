@@ -81,6 +81,22 @@ namespace AnnonsTjanst.Controllers
 
             return View();
         }
+        public ActionResult sickar(string url2)
+        {
+            string sickaurl;
+            if (Session["profilId"] != null)
+            {
+                string id = Session["profilId"].ToString();
+                sickaurl = url2 + "?id=" + id;
+            }
+            else
+            {
+                sickaurl = url2;
+            }
+           Response.Redirect(sickaurl);// funkar inte lokalt funkar den onlin?
+            
+            return View();
+        }
 
 
     }
