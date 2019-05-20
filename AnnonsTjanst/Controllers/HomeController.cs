@@ -22,17 +22,10 @@ namespace AnnonsTjanst.Controllers
                     if (Session["profilId"] != null)
                     {
                         //Converting your session variable value to integer
-                        var test = Session["profilId"];
+
                         id = Convert.ToInt32(Session["profilId"]);//ut komenterad kod pga problem med sekson   Convert.ToInt32(id1.Text); ((int)Session["profilId"]);
                         var anvendare = logclient.VisaAnvandarInfoId(id);
                         ViewBag.medalande = anvendare.Anvandarnamn;
-                    }
-                    else
-                    {
-                        var hej = "hejsan";
-                        Console.Beep();
-                        Console.BackgroundColor = System.ConsoleColor.Black;
-                        Console.CursorSize = 200;
                     }
 
                 }
