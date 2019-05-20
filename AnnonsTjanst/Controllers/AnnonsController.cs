@@ -20,8 +20,14 @@ namespace AnnonsTjanst.Controllers
         {
             ViewBag.Message = "Your contact page.";
             ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
+            LoginService.InloggningServiceClient logclient = new LoginService.InloggningServiceClient();
             annons.datum = DateTime.Now;
             annons.betalningsmetod = "NA";
+            //Hämtar säljarnamn från inloggningsclient. Skickar den inloggade användarens användarnamn som inparameter.
+            //ProfilId är ett nullable värde och måste först konverteras innan det kan användas i databasen.
+            int? test = logclient.VisaAnvandarInfo(User.Identity.Name).ProfilId;
+            int test2 = test.Value;
+            annons.saljarID = test2;
             annons.status = "Till Salu";//ändrar status till "Till Salu"
             string result = client.SkapaAnnons(annons);
             ViewBag.Message = result;
@@ -33,12 +39,12 @@ namespace AnnonsTjanst.Controllers
             LoginService.InloggningServiceClient logclient = new LoginService.InloggningServiceClient();
             var annons = client.HamtaAnnons(id);
             //Hämtar användarnamn från objekt av Användare. Tar id som inparameter.
-            var anvandarNamn = logclient.VisaAnvandarInfoId(client.HamtaAnnons(id).saljarID).Anvandarnamn;
-            if (anvandarNamn == null)
+            var saljNamn = logclient.VisaAnvandarInfoId(client.HamtaAnnons(id).saljarID).Anvandarnamn;
+            if (saljNamn == null)
             {
-                anvandarNamn = "Säljaren kunde inte hittas";
+                saljNamn = "Säljaren kunde inte hittas";
             }
-            ViewBag.anvandarNamn = anvandarNamn;
+            ViewBag.saljarNamn = saljNamn;
             return View(annons);
         }
         public ActionResult Kop(int id)
