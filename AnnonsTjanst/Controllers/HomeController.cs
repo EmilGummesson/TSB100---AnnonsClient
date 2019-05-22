@@ -11,20 +11,20 @@ namespace AnnonsTjanst.Controllers
 
 
 
-        public ActionResult Index(int? idin)
+        public ActionResult Index(int? id)
         {
-            if (idin == null)
+            if (id == null)
             {
                 try
                 {
-                    int id = 11;
+                    int nyid = 11;
                     loginReferences.InloggningServiceClient logclient = new loginReferences.InloggningServiceClient();
                     if (Session["profilId"] != null)
                     {
                         //Converting your session variable value to integer
 
-                        id = Convert.ToInt32(Session["profilId"]);//ut komenterad kod pga problem med sekson   Convert.ToInt32(id1.Text); ((int)Session["profilId"]);
-                        var anvendare = logclient.VisaAnvandarInfoId(id);
+                        nyid = Convert.ToInt32(Session["profilId"]);//ut komenterad kod pga problem med sekson   Convert.ToInt32(id1.Text); ((int)Session["profilId"]);
+                        var anvendare = logclient.VisaAnvandarInfoId(nyid);
                         ViewBag.medalande = anvendare.Anvandarnamn;
                     }
 
@@ -36,13 +36,13 @@ namespace AnnonsTjanst.Controllers
             }
             else
             {
-                int id = int.Parse(idin.ToString());
+                int idny = int.Parse(id.ToString());
                 loginReferences.InloggningServiceClient logclient = new loginReferences.InloggningServiceClient();
-                if (logclient.VerifieraInloggning(id))
+                if (logclient.VerifieraInloggning(idny))
                 {
-                    Session["profilId"] = id;
-                    var anvendare = logclient.VisaAnvandarInfoId(id);
-                    string test = anvendare.Anvandarnamn;
+                    Session["profilId"] = idny;
+                    var anvendare = logclient.VisaAnvandarInfoId(idny);
+                    ViewBag.medalande = anvendare.Anvandarnamn;
 
                 }
             }
@@ -82,23 +82,7 @@ namespace AnnonsTjanst.Controllers
 
             return View();
         }
-        public ActionResult sickar(string url2)
-        {
-            string sickaurl;
-            if (Session["profilId"] != null)
-            {
-                string id = Session["profilId"].ToString();
-                sickaurl = url2 + "?id=" + id;
-            }
-            else
-            {
-                sickaurl = url2;
-            }
-            Response.Redirect(sickaurl);// funkar inte lokalt funkar den onlin?
-
-            //Response.Redirect(Request.ApplicationPath.Replace("http://localhost:52114/",sickaurl));
-            return View();
-        }
+        
 
 
     }

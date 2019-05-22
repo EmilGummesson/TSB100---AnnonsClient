@@ -154,12 +154,6 @@ namespace AnnonsTjanst.loginReferences {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInloggningService/LoggaIn", ReplyAction="http://tempuri.org/IInloggningService/LoggaInResponse")]
         System.Threading.Tasks.Task<AnnonsTjanst.loginReferences.Anvandare> LoggaInAsync(string anvandarNamn, string losenord, string behorighet);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInloggningService/SkapaSession", ReplyAction="http://tempuri.org/IInloggningService/SkapaSessionResponse")]
-        bool SkapaSession(int profilId);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInloggningService/SkapaSession", ReplyAction="http://tempuri.org/IInloggningService/SkapaSessionResponse")]
-        System.Threading.Tasks.Task<bool> SkapaSessionAsync(int profilId);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInloggningService/LoggaUt", ReplyAction="http://tempuri.org/IInloggningService/LoggaUtResponse")]
         bool LoggaUt(int anvandarId);
         
@@ -262,14 +256,6 @@ namespace AnnonsTjanst.loginReferences {
         
         public System.Threading.Tasks.Task<AnnonsTjanst.loginReferences.Anvandare> LoggaInAsync(string anvandarNamn, string losenord, string behorighet) {
             return base.Channel.LoggaInAsync(anvandarNamn, losenord, behorighet);
-        }
-        
-        public bool SkapaSession(int profilId) {
-            return base.Channel.SkapaSession(profilId);
-        }
-        
-        public System.Threading.Tasks.Task<bool> SkapaSessionAsync(int profilId) {
-            return base.Channel.SkapaSessionAsync(profilId);
         }
         
         public bool LoggaUt(int anvandarId) {

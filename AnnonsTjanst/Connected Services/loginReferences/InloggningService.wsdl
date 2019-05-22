@@ -19,12 +19,6 @@
   <wsdl:message name="IInloggningService_LoggaIn_OutputMessage">
     <wsdl:part name="parameters" element="tns:LoggaInResponse" />
   </wsdl:message>
-  <wsdl:message name="IInloggningService_SkapaSession_InputMessage">
-    <wsdl:part name="parameters" element="tns:SkapaSession" />
-  </wsdl:message>
-  <wsdl:message name="IInloggningService_SkapaSession_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SkapaSessionResponse" />
-  </wsdl:message>
   <wsdl:message name="IInloggningService_LoggaUt_InputMessage">
     <wsdl:part name="parameters" element="tns:LoggaUt" />
   </wsdl:message>
@@ -94,10 +88,6 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IInloggningService/LoggaIn" message="tns:IInloggningService_LoggaIn_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IInloggningService/LoggaInResponse" message="tns:IInloggningService_LoggaIn_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="SkapaSession">
-      <wsdl:input wsaw:Action="http://tempuri.org/IInloggningService/SkapaSession" message="tns:IInloggningService_SkapaSession_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IInloggningService/SkapaSessionResponse" message="tns:IInloggningService_SkapaSession_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="LoggaUt">
       <wsdl:input wsaw:Action="http://tempuri.org/IInloggningService/LoggaUt" message="tns:IInloggningService_LoggaUt_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IInloggningService/LoggaUtResponse" message="tns:IInloggningService_LoggaUt_OutputMessage" />
@@ -152,15 +142,6 @@
     </wsdl:operation>
     <wsdl:operation name="LoggaIn">
       <soap:operation soapAction="http://tempuri.org/IInloggningService/LoggaIn" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SkapaSession">
-      <soap:operation soapAction="http://tempuri.org/IInloggningService/SkapaSession" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
