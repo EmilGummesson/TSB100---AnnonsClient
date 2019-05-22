@@ -65,6 +65,7 @@ namespace AnnonsTjanst.Controllers
                 behorrighet = "standard";
             }
             loginReferences.InloggningServiceClient logclient = new loginReferences.InloggningServiceClient();
+            var test2 = logclient.HamtaAllaAnvandare();
             var anvinfo = logclient.LoggaIn(anvandarnamn, losenord, behorrighet);
             if (anvinfo != null)
             {
