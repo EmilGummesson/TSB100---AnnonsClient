@@ -29,20 +29,6 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="SkapaSession">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="profilId" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SkapaSessionResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="SkapaSessionResult" type="xs:boolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="LoggaUt">
     <xs:complexType>
       <xs:sequence>
