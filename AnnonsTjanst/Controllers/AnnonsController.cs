@@ -26,7 +26,11 @@ namespace AnnonsTjanst.Controllers
             annons.status = "Till Salu";//ändrar status till salu
             //Hämtar säljarnamn från inloggningsclient. Skickar den inloggade användarens användarnamn som inparameter.
             //ProfilId är ett nullable värde och måste först konverteras innan det kan användas i databasen.
-            int? test = logclient.VisaAnvandarInfo(User.Identity.Name).ProfilId;
+
+            Session["profilId"] = tempID;
+            var anvandare = logclient.VisaAnvandarInfoId(tempID);
+
+            int? test = logclient.VisaAnvandarInfo(anvandare).ProfilId;
             if (test == null)
             {
                 annons.saljarID = 0;
@@ -65,7 +69,11 @@ namespace AnnonsTjanst.Controllers
             loginReferences.InloggningServiceClient logclient = new loginReferences.InloggningServiceClient();
             var annons = client.HamtaAnnons(id);
             annons.status = "Såld";//änrraas status till sold
-            annons.koparID = (logclient.VisaAnvandarInfo(User.Identity.Name).ProfilId).ToString();
+
+            Session["profilId"] = tempID;
+            var anvandare = logclient.VisaAnvandarInfoId(tempID);
+
+            annons.koparID = (logclient.VisaAnvandarInfo(anvandare).ProfilId).ToString();
             client.UppdateraAnnons(annons);
             //return RedirectToAction("http://193.10.202.73/betalningservice/Service1.svc");
             return RedirectToAction("Index", "Home");
