@@ -51,6 +51,16 @@ namespace AnnonsTjanst.Controllers
         }
         public ActionResult Detaljer(int id)
         {
+            if (Session["profilId"] != null)
+            {
+                int idny = Convert.ToInt32(Session["profilId"]);
+                loginReferences.InloggningServiceClient logclient = new loginReferences.InloggningServiceClient();
+                if (logclient.VerifieraInloggning(idny))
+                {
+                    var anvendare = logclient.VisaAnvandarInfoId(idny);
+                    ViewBag.medalande = anvendare.Anvandarnamn;
+                }
+            }
             ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
             var annons = client.HamtaAnnons(id);
             return View(annons);
