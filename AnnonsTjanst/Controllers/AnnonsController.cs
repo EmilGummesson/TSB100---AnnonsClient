@@ -36,14 +36,30 @@ namespace AnnonsTjanst.Controllers
         }
         public ActionResult Kop(int id)
         {
+            // Hämta annons
             ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
             var annons = client.HamtaAnnons(id);
-            annons.status = "Såld";//änrraas status till sold
-            client.UppdateraAnnons(annons);
-            //return RedirectToAction("http://193.10.202.73/betalningservice/Service1.svc");
+
+
+
+            if (Session["profilId"] != null)
+            {
+                // Ändra status till såld
+                annons.status = "Såld";
+                // Spara nuvarande användare som köpare
+                annons.koparID = Convert.ToInt32(Session["profilId"]).ToString();
+                // Spara ny info
+                client.UppdateraAnnons(annons);
+                
+                // Skicka vidare till betalningstjänst
+                return Redirect("http://193.10.202.73/betaltjanst/Betalnings/Betala?Id=" + annons.koparID.ToString() + "&AnnonsID=" + annons.annonsID.ToString());
+            }
+
+
             return RedirectToAction("Index", "Home");
         }
-        public ActionResult Redigera(int id, ServiceReference1.Annonser annonser)
+
+            public ActionResult Redigera(int id, ServiceReference1.Annonser annonser)
         {
             ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
             var result = client.HamtaAnnons(id);

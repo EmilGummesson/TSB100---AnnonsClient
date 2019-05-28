@@ -167,10 +167,10 @@ namespace AnnonsTjanst.loginReferences {
         System.Threading.Tasks.Task<bool> RegistreraAnvandareAsync(string anvandarNamn, string losenord, string email, int profilID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInloggningService/VisaAnvandarInfo", ReplyAction="http://tempuri.org/IInloggningService/VisaAnvandarInfoResponse")]
-        AnnonsTjanst.loginReferences.Anvandare VisaAnvandarInfo(string anvandarNamn);
+        AnnonsTjanst.loginReferences.Anvandare VisaAnvandarInfo(int anvandarId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInloggningService/VisaAnvandarInfo", ReplyAction="http://tempuri.org/IInloggningService/VisaAnvandarInfoResponse")]
-        System.Threading.Tasks.Task<AnnonsTjanst.loginReferences.Anvandare> VisaAnvandarInfoAsync(string anvandarNamn);
+        System.Threading.Tasks.Task<AnnonsTjanst.loginReferences.Anvandare> VisaAnvandarInfoAsync(int anvandarId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInloggningService/VisaAnvandarInfoId", ReplyAction="http://tempuri.org/IInloggningService/VisaAnvandarInfoIdResponse")]
         AnnonsTjanst.loginReferences.Anvandare VisaAnvandarInfoId(int profilId);
@@ -274,12 +274,12 @@ namespace AnnonsTjanst.loginReferences {
             return base.Channel.RegistreraAnvandareAsync(anvandarNamn, losenord, email, profilID);
         }
         
-        public AnnonsTjanst.loginReferences.Anvandare VisaAnvandarInfo(string anvandarNamn) {
-            return base.Channel.VisaAnvandarInfo(anvandarNamn);
+        public AnnonsTjanst.loginReferences.Anvandare VisaAnvandarInfo(int anvandarId) {
+            return base.Channel.VisaAnvandarInfo(anvandarId);
         }
         
-        public System.Threading.Tasks.Task<AnnonsTjanst.loginReferences.Anvandare> VisaAnvandarInfoAsync(string anvandarNamn) {
-            return base.Channel.VisaAnvandarInfoAsync(anvandarNamn);
+        public System.Threading.Tasks.Task<AnnonsTjanst.loginReferences.Anvandare> VisaAnvandarInfoAsync(int anvandarId) {
+            return base.Channel.VisaAnvandarInfoAsync(anvandarId);
         }
         
         public AnnonsTjanst.loginReferences.Anvandare VisaAnvandarInfoId(int profilId) {
