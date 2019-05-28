@@ -6,14 +6,9 @@
 <label>du är inlogad som: </label>  @ViewBag.medalande
 <p>
     <button class="btn btn-default border-dark" style="background:#3BD1FF"> @Html.ActionLink("Lägg till ny annons", "Skapa", "Annons")</button>
-    @*<button class="btn btn-default border-dark" style="background:#3BD1FF"> @Html.ActionLink("logain", "logain")</button>
-    <button class="btn btn-default border-dark" style="background:#3BD1FF"> @Html.ActionLink("temp", "index", new { id = 3031 })</button>*@
+    @*@<button class="btn btn-default border-dark" style="background:#3BD1FF"> @Html.ActionLink("logain", "logain")</button>*@
+    <button class="btn btn-default border-dark" style="background:#3BD1FF"> @Html.ActionLink("temp", "index", new { id = 3031 })</button>
 </p>
-@*<form action="upload.php" method="post" enctype="multipart/form-data">
-    Select image to upload:
-    <input type="file" name="fileToUpload" id="fileToUpload">
-    <input type="submit" value="Upload Image" name="submit">
-</form>*@
 
 <table class="table">
     <tr>
@@ -64,7 +59,7 @@
 
     @foreach (var item in Model)
     {
-        if (item.status != "Såld")
+        if (item.status == "Till Salu")
         {
             <tr>
                 <td>

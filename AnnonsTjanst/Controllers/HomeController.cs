@@ -28,6 +28,7 @@ namespace AnnonsTjanst.Controllers
                         ViewBag.medalande = anvendare.Anvandarnamn;
                     }
 
+
                 }
                 catch
                 {
@@ -45,8 +46,14 @@ namespace AnnonsTjanst.Controllers
                     ViewBag.medalande = anvendare.Anvandarnamn;
 
                 }
+                else
+                {
+                    string url= "http://193.10.202.74/Anvandare/Profil/VisaProfil";
+                    Response.Redirect(url);
+                }
             }
             ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
+            ViewBag.id =Convert.ToInt32(Session["profilId"]);
             return View(client.HamtaAllaAnnonser());
         }
 
