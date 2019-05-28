@@ -27,21 +27,27 @@ namespace AnnonsTjanst.Controllers
             //Hämtar säljarnamn från inloggningsclient. Skickar den inloggade användarens användarnamn som inparameter.
             //ProfilId är ett nullable värde och måste först konverteras innan det kan användas i databasen.
 
-            Session["profilId"] = tempID;
-            var anvandare = logclient.VisaAnvandarInfoId(tempID);
-
-            int? test = logclient.VisaAnvandarInfo(anvandare).ProfilId;
-            if (test == null)
+            if (Session["profilId"] != null)
             {
-                annons.saljarID = 0;
+                int tempId = Convert.ToInt32(Session["profilId"]);
+                if (logclient.VerifieraInloggning(tempId))
+                {
+                    Session["profilId"] = tempId;
+                    annons.saljarID = tempId;
+                    string result = client.SkapaAnnons(annons);
+                    ViewBag.Message = result;
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    return Redirect("http://193.10.202.74/Anvandare/Profil/VisaProfil");
+
+                }
             }
             else
             {
-                annons.saljarID = test.Value;
+                return Redirect("http://193.10.202.74/Anvandare/Profil/VisaProfil");
             }
-            string result = client.SkapaAnnons(annons);
-            ViewBag.Message = result;
-            return RedirectToAction("Index", "Home");
         }
         public ActionResult Detaljer(int id)
         {
@@ -70,8 +76,7 @@ namespace AnnonsTjanst.Controllers
             var annons = client.HamtaAnnons(id);
             annons.status = "Såld";//änrraas status till sold
 
-            Session["profilId"] = tempID;
-            var anvandare = logclient.VisaAnvandarInfoId(tempID);
+            var anvandare = logclient.VisaAnvandarInfoId(id).Anvandarnamn;
 
             annons.koparID = (logclient.VisaAnvandarInfo(anvandare).ProfilId).ToString();
             client.UppdateraAnnons(annons);
