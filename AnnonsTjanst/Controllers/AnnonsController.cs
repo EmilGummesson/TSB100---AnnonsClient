@@ -20,28 +20,31 @@ namespace AnnonsTjanst.Controllers
             ViewBag.Message = "Your contact page.";
             ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
             loginReferences.InloggningServiceClient logclient = new loginReferences.InloggningServiceClient();
+            //Sätter datum till dagens datum
             annons.datum = DateTime.Now;
             annons.betalningsmetod = "NA";
             annons.kategori = Request.Form["Kategorier"].ToString();
-            annons.status = "Till Salu";//ändrar status till salu
-            //Hämtar säljarnamn från inloggningsclient. Skickar den inloggade användarens användarnamn som inparameter.
-            //ProfilId är ett nullable värde och måste först konverteras innan det kan användas i databasen.
-
+            //ändrar status till salu
+            annons.status = "Till Salu";
+            
+            
             if (Session["profilId"] != null)
             {
+                //Gör sessionsID till en temporär int som sedan verifieras genom loginclienten.
                 int tempId = Convert.ToInt32(Session["profilId"]);
                 if (logclient.VerifieraInloggning(tempId))
                 {
                     Session["profilId"] = tempId;
+                    //Sätter säljarnamn utifrån inloggningssessionens ID.
                     annons.saljarID = tempId;
                     string result = client.SkapaAnnons(annons);
                     ViewBag.Message = result;
                     return RedirectToAction("Index", "Home");
                 }
+                //Är användaren inte inloggad kommer denne att dirigeras om till inloggningssidan.
                 else
                 {
                     return Redirect("http://193.10.202.74/Anvandare/Profil/VisaProfil");
-
                 }
             }
             else
@@ -56,6 +59,7 @@ namespace AnnonsTjanst.Controllers
             var annons = client.HamtaAnnons(id);
             //Hämtar användarnamn från objekt av Användare. Tar id som inparameter.
             var saljNamn = logclient.VisaAnvandarInfoId(client.HamtaAnnons(id).saljarID).Anvandarnamn;
+            //Hittas ingen säljare/köpare sätts värdet i viewbagen till ett medelande som informarar användaren om detta.
             if (saljNamn == null)
             {
                 saljNamn = "Säljaren kunde inte hittas";
@@ -74,7 +78,8 @@ namespace AnnonsTjanst.Controllers
             ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
             loginReferences.InloggningServiceClient logclient = new loginReferences.InloggningServiceClient();
             var annons = client.HamtaAnnons(id);
-            annons.status = "Såld";//änrraas status till sold
+            //ändrar status till såld
+            annons.status = "Såld";
 
             var anvandare = logclient.VisaAnvandarInfoId(id).Anvandarnamn;
 
