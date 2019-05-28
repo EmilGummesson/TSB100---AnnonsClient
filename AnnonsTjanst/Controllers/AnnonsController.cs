@@ -76,10 +76,11 @@ namespace AnnonsTjanst.Controllers
         }
         public ActionResult Detaljer(int id)
         {
+            loginReferences.InloggningServiceClient logclient = new loginReferences.InloggningServiceClient();
             if (Session["profilId"] != null)
             {
                 int idny = Convert.ToInt32(Session["profilId"]);
-                loginReferences.InloggningServiceClient logclient = new loginReferences.InloggningServiceClient();
+                
                 if (logclient.VerifieraInloggning(idny))
                 {
                     var anvendare = logclient.VisaAnvandarInfoId(idny);
@@ -87,7 +88,6 @@ namespace AnnonsTjanst.Controllers
                 }
             }
             ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
-            loginReferences.InloggningServiceClient logclient = new loginReferences.InloggningServiceClient();
             var annons = client.HamtaAnnons(id);
             //Hämtar användarnamn från objekt av Användare. Tar id som inparameter.
             var saljNamn = logclient.VisaAnvandarInfoId(client.HamtaAnnons(id).saljarID).Anvandarnamn;
@@ -107,10 +107,11 @@ namespace AnnonsTjanst.Controllers
         }
         public ActionResult Kop(int id)
         {
+            loginReferences.InloggningServiceClient logclient = new loginReferences.InloggningServiceClient();
             if (Session["profilId"] != null)
             {
                 int idny = Convert.ToInt32(Session["profilId"]);
-                loginReferences.InloggningServiceClient logclient = new loginReferences.InloggningServiceClient();
+                
                 if (logclient.VerifieraInloggning(idny))
                 {
 
@@ -130,7 +131,6 @@ namespace AnnonsTjanst.Controllers
             }
             
             ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
-            loginReferences.InloggningServiceClient logclient = new loginReferences.InloggningServiceClient();
             var annons = client.HamtaAnnons(id);
             if (Session["profilId"] != null)
             {
