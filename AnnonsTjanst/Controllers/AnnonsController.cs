@@ -6,10 +6,32 @@ using System.Web.Mvc;
 
 namespace AnnonsTjanst.Controllers
 {
+
     public class AnnonsController : Controller
     {
         public ActionResult Skapa()
         {
+            if (Session["profilId"] != null)
+            {
+                int idny = Convert.ToInt32(Session["profilId"]);
+                loginReferences.InloggningServiceClient logclient = new loginReferences.InloggningServiceClient();
+                if (logclient.VerifieraInloggning(idny))
+                {
+
+                }
+                else
+                {
+                    string url = "http://193.10.202.74/Anvandare/Profil/VisaProfil";
+                    Response.Redirect(url);
+                    return View();
+                }
+            }
+            else
+            {
+                string url = "http://193.10.202.74/Anvandare/Profil/VisaProfil";
+                Response.Redirect(url);
+                return View();
+            }
             ViewBag.Message = "Your contact page.";
             return View();
         }
@@ -54,6 +76,16 @@ namespace AnnonsTjanst.Controllers
         }
         public ActionResult Detaljer(int id)
         {
+            if (Session["profilId"] != null)
+            {
+                int idny = Convert.ToInt32(Session["profilId"]);
+                loginReferences.InloggningServiceClient logclient = new loginReferences.InloggningServiceClient();
+                if (logclient.VerifieraInloggning(idny))
+                {
+                    var anvendare = logclient.VisaAnvandarInfoId(idny);
+                    ViewBag.medalande = anvendare.Anvandarnamn;
+                }
+            }
             ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
             loginReferences.InloggningServiceClient logclient = new loginReferences.InloggningServiceClient();
             var annons = client.HamtaAnnons(id);
@@ -75,6 +107,28 @@ namespace AnnonsTjanst.Controllers
         }
         public ActionResult Kop(int id)
         {
+            if (Session["profilId"] != null)
+            {
+                int idny = Convert.ToInt32(Session["profilId"]);
+                loginReferences.InloggningServiceClient logclient = new loginReferences.InloggningServiceClient();
+                if (logclient.VerifieraInloggning(idny))
+                {
+
+                }
+                else
+                {
+                    string url = "http://193.10.202.74/Anvandare/Profil/VisaProfil";
+                    Response.Redirect(url);
+                    return View();
+                }
+            }
+            else
+            {
+                string url = "http://193.10.202.74/Anvandare/Profil/VisaProfil";
+                Response.Redirect(url);
+                return View();
+            }
+            
             ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
             loginReferences.InloggningServiceClient logclient = new loginReferences.InloggningServiceClient();
             var annons = client.HamtaAnnons(id);
@@ -93,10 +147,11 @@ namespace AnnonsTjanst.Controllers
             return RedirectToAction("Index", "Home");
 
         }
-        public ActionResult Redigera(int id, ServiceReference1.Annonser annonser)
+        public ActionResult Redigera(int id)
         {
             ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
             var result = client.HamtaAnnons(id);
+
             return View(result);
         }
         [HttpPost]
