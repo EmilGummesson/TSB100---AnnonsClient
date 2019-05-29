@@ -9,21 +9,22 @@ namespace AnnonsTjanst.Controllers
     public class RedirectController : Controller
     {
         // GET: Redirect
-        public ActionResult sickar(string url2)
+        public ActionResult Skickar(string url2)
         {
-            string sickaurl;
+            string skickaurl;
             if (Session["profilId"] != null)
             {
                 string id = Session["profilId"].ToString();
-                sickaurl = url2 + "?id=" + id;
+                skickaurl = url2 + "?id=" + id;
             }
             else
             {
-                sickaurl = url2;
+                skickaurl = url2;
             }
-            Response.Redirect(sickaurl);// funkar inte lokalt funkar den onlin?
+            // Fungerar inte lokalt || Fungerar den online?
+            Response.Redirect(skickaurl);
 
-            //Response.Redirect(Request.ApplicationPath.Replace("http://localhost:52114/",sickaurl));
+            //Response.Redirect(Request.ApplicationPath.Replace("http://localhost:52114/",skickaurl));
             return View();
         }
     }
