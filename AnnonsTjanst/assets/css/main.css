@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /*+---------------------------------------------------------------------+
   | style: GUI                                                          |
   | com: sass --watch sass/main.scss css/main.css                       |
@@ -5659,6 +5659,19 @@ a.close.disabled {
 
 .carousel-control-next-icon {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3e%3c/svg%3e");
+}
+
+a{
+    color:white;
+}
+
+.mybutton {
+    padding: 10px;
+    border-radius: 5px;
+    border-style: none;
+    background-color: #3BD1FF;
+    color:white;
+ 
 }
 
 .carousel-indicators {
