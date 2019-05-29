@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Index";
 }
-<label>du är inlogad som: </label>  @ViewBag.medalande
+<label>Inloggad som: </label>  @ViewBag.medalande
 <p>
 
     @if (@ViewBag.medalande != null)
@@ -14,6 +14,9 @@
     <button class="btn btn-default border-dark" style="background:#3BD1FF"> @Html.ActionLink("temp", "index", new { id = 3031 })</button>
 
 
+    <button class="btn btn-default border-none" style="background:#3BD1FF"> @Html.ActionLink("Lägg till ny annons", "Skapa", "Annons")</button>
+    @*<button class="btn btn-default border-dark" style="background:#3BD1FF"> @Html.ActionLink("logain", "logain")</button>
+    <button class="btn btn-default border-dark" style="background:#3BD1FF"> @Html.ActionLink("temp", "index", new { id = 3031 })</button>*@
 </p>
 
 <table class="table">
@@ -49,16 +52,7 @@
             Datum
         </th>
         <th>
-            Status
-        </th>
-        <th>
-            Köpare
-        </th>
-        <th>
             Säljare
-        </th>
-        <th>
-            AnnonsID
         </th>
         <th></th>
     </tr>
@@ -98,17 +92,21 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.datum)
                 </td>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.status)
-                </td>
-                <td>
+                </td>*@
+                @*<td>
                     @Html.DisplayFor(modelItem => item.koparID)
-                </td>
+                </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.saljarID)
                 </td>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.annonsID)
+                </td>*@
+                <td>
+                    
+                    <button class="btn btn-default border-none" style="background:#3BD1FF"> @Html.ActionLink("Redigera", "Redigera", "Annons", new { id = item.annonsID}, null)</button>
                 </td>
                 <td>
                     @if (@ViewBag.medalande != null)
@@ -116,6 +114,7 @@
                         <button class="btn btn-default border-dark" style="background:#3BD1FF"> @Html.ActionLink("Redigera", "Redigera", "Annons", new { id = item.annonsID }, null)</button>
                     }
                     <button class="btn btn-default border-dark" style="background:#3BD1FF"> @Html.ActionLink("Detaljer", "Detaljer", "Annons", new { id = item.annonsID }, null)</button>
+                    <button class="btn btn-default border-none" style="background:#3BD1FF"> @Html.ActionLink("Detaljer", "Detaljer", "Annons", new { id = item.annonsID }, null)</button>
                 </td>
             </tr>
         }
