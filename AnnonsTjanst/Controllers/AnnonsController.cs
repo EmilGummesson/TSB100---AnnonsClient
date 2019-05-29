@@ -89,6 +89,7 @@ namespace AnnonsTjanst.Controllers
             }
             catch
             {
+                Console.WriteLine("fell");
                 //om deta hände är förmodligen inte internät anslutet
                 return RedirectToAction("Skapa");
             }
@@ -191,6 +192,7 @@ namespace AnnonsTjanst.Controllers
                 var result = client.UppdateraAnnons(annons);
                 if (result == "Uppdatering misslyckades")//Uppdatering misslyckades
                 {
+                    Console.WriteLine("fell");
                     return RedirectToAction("Redigera", annons.annonsID);
                 }
             }
