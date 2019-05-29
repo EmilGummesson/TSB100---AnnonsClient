@@ -23,7 +23,7 @@ namespace AnnonsTjanst.Controllers
             }
             // Fungerar inte lokalt || Fungerar den online?
             Response.Redirect(skickaurl);
-
+            Session.Abandon();
             //Response.Redirect(Request.ApplicationPath.Replace("http://localhost:52114/",skickaurl));
             return View();
         }
