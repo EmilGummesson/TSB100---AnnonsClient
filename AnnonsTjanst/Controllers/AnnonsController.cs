@@ -45,11 +45,13 @@ namespace AnnonsTjanst.Controllers
             //Sätter datum till dagens datum
             annons.datum = DateTime.Now;
             annons.betalningsmetod = "NA";
+            if (Request.Form["Kategorier"].ToString() == "") { 
+}
             annons.kategori = Request.Form["Kategorier"].ToString();
             //ändrar status till salu
             annons.status = "Till Salu";
             
-            
+            return RedirectToAction("Index", "Home");
             if (Session["profilId"] != null)
             {
                 //Gör sessionsID till en temporär int som sedan verifieras genom loginclienten.
@@ -61,7 +63,7 @@ namespace AnnonsTjanst.Controllers
                     annons.saljarID = tempId;
                     string result = client.SkapaAnnons(annons);
                     ViewBag.Message = result;
-                    return RedirectToAction("Index", "Home");
+                    
                 }
                 //Är användaren inte inloggad kommer denne att dirigeras om till inloggningssidan.
                 else
