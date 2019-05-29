@@ -279,7 +279,7 @@
     <Content Include="Views\Annons\Skapa.cshtml" />
     <Content Include="Views\Annons\Detaljer.cshtml" />
     <Content Include="Views\Annons\Redigera.cshtml" />
-    <Content Include="Views\Home\logain.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
