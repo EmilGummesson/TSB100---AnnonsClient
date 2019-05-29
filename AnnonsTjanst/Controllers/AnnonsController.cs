@@ -158,7 +158,15 @@ namespace AnnonsTjanst.Controllers
         public ActionResult Redigera(ServiceReference1.Annonser annons)
         {
             ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
-            annons.kategori = Request.Form["Kategorier"].ToString();
+
+            if (Request.Form["Kategorier"].ToString() == "")//om kagorin inte är ändrad hämta kategorin från den tidigare annonsen
+            {
+                annons.kategori = (client.HamtaAnnons(annons.annonsID)).kategori;
+            }
+            else
+            {
+                annons.kategori = Request.Form["Kategorier"].ToString();
+            }
             var result = client.UppdateraAnnons(annons);
             return RedirectToAction("Index", "Home");
         }

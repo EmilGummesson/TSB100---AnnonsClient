@@ -22,7 +22,7 @@ namespace AnnonsTjanst.Controllers
                 sickaurl = url2;
             }
             Response.Redirect(sickaurl);// funkar inte lokalt funkar den onlin?
-
+            Session.Abandon();
             //Response.Redirect(Request.ApplicationPath.Replace("http://localhost:52114/",sickaurl));
             return View();
         }
