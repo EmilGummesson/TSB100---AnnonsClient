@@ -40,42 +40,60 @@ namespace AnnonsTjanst.Controllers
         [HttpPost]
         public ActionResult Skapa(ServiceReference1.Annonser annons)
         {
-            ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
-            loginReferences.InloggningServiceClient logclient = new loginReferences.InloggningServiceClient();
-            //Sätter datum till dagens datum
-            annons.datum = DateTime.Now;
-            annons.betalningsmetod = "NA";
-            annons.kategori = Request.Form["Kategorier"].ToString();
-            //ändrar status till salu
-            annons.status = "Till Salu";
-            
-            if (Session["profilId"] != null)
+            try
             {
-                //Gör sessionsID till en temporär int som sedan verifieras genom loginclienten.
-                int tempId = Convert.ToInt32(Session["profilId"]);
-                if (logclient.VerifieraInloggning(tempId))
+                ViewBag.Message = "Your contact page.";
+                ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
+                loginReferences.InloggningServiceClient logclient = new loginReferences.InloggningServiceClient();
+                //Sätter datum till dagens datum
+                annons.datum = DateTime.Now;
+                annons.betalningsmetod = "NA";
+                if (Request.Form["Kategorier"].ToString() == "")
                 {
-                    Session["profilId"] = tempId;
-                    //Sätter säljarnamn utifrån inloggningssessionens ID.
-                    //Resterande information kommer ifrån "Skapa" vyn eller överst i Controllern
-                    annons.saljarID = tempId;
-                    string result = client.SkapaAnnons(annons);
-                    ViewBag.Message = result;
-
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Skapa");
                 }
-                //Är användaren inte inloggad kommer denne att dirigeras om till inloggningssidan.
+                annons.kategori = Request.Form["Kategorier"].ToString();
+                //ändrar status till salu
+                annons.status = "Till Salu";
+            
+            
+                if (Session["profilId"] != null)
+                {
+                    //Gör sessionsID till en temporär int som sedan verifieras genom loginclienten.
+                    int tempId = Convert.ToInt32(Session["profilId"]);
+                    if (logclient.VerifieraInloggning(tempId))
+                    {
+                        Session["profilId"] = tempId;
+                        //Sätter säljarnamn utifrån inloggningssessionens ID.
+                        annons.saljarID = tempId;
+                    
+                            string result = client.SkapaAnnons(annons);
+                            ViewBag.Message = result;
+                            if (result== "Allt är inte bra! Adjö!")
+                            {
+                            Console.WriteLine("fell");
+                                return RedirectToAction("Skapa");
+                            }
+                            return RedirectToAction("Index", "Home");
+
+                    }
+                    //Är användaren inte inloggad kommer denne att dirigeras om till inloggningssidan.
+                    else
+                    {
+                        return Redirect("http://193.10.202.74/Anvandare/Profil/VisaProfil");
+                    }
+                }
                 else
                 {
                     return Redirect("http://193.10.202.74/Anvandare/Profil/VisaProfil");
                 }
             }
-            else
+            catch
             {
-                return Redirect("http://193.10.202.74/Anvandare/Profil/VisaProfil");
+                //om deta hände är förmodligen inte internät anslutet
+                return RedirectToAction("Skapa");
             }
         }
-
         public ActionResult Detaljer(int id)
         {
             //Kollar sessionsID
@@ -167,11 +185,29 @@ namespace AnnonsTjanst.Controllers
         [HttpPost]
         public ActionResult Redigera(ServiceReference1.Annonser annons)
         {
-            ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
-            annons.kategori = Request.Form["Kategorier"].ToString();
-            //Uppdaterar databas med nya värden
-            var result = client.UppdateraAnnons(annons);
+            try
+            {
+                ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
 
+                if (Request.Form["Kategorier"].ToString() == "")//om kagorin inte är ändrad hämta kategorin från den tidigare annonsen
+                {
+                    annons.kategori = (client.HamtaAnnons(annons.annonsID)).kategori;
+                }
+                else
+                {
+                    annons.kategori = Request.Form["Kategorier"].ToString();
+                }
+                var result = client.UppdateraAnnons(annons);
+                if (result == "Uppdatering misslyckades")//Uppdatering misslyckades
+                {
+                    return RedirectToAction("Redigera", annons.annonsID);
+                }
+            }
+            catch
+            {
+                Console.WriteLine("fell");
+                //om deta hände är förmodligen inte internät anslutet
+            }
             return RedirectToAction("Index", "Home");
         }
 
