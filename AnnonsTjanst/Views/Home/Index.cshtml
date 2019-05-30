@@ -8,10 +8,10 @@
 
     @if (@ViewBag.medalande != null)
     {
-    <button class="btn btn-default border-none" style="background:#3BD1FF"> @Html.ActionLink("Lägg till ny annons", "Skapa", "Annons")</button>
+    <button class="mybutton"> @Html.ActionLink("Lägg till ny annons", "Skapa", "Annons")</button>
     }
-    @*<button class="btn btn-default border-dark" style="background:#3BD1FF"> @Html.ActionLink("Login", "Login")</button>*@
-    @*<button class="btn btn-default border-none" style="background:#3BD1FF"> @Html.ActionLink("temp", "index", new { id = 3031 })</button>*@
+    @*<button class="btn btn-default border-dark" style="background:#3BD1FF"> @Html.ActionLink("Login", "Login")</button>
+    <button class="btn btn-default border-none" style="background:#3BD1FF"> @Html.ActionLink("temp", "index", new { id = 3031 })</button>*@
 
 
 </p>
@@ -24,33 +24,33 @@
         <th>
             Beskrivning
         </th>
-        <th>
+        @*<th>
             Bild
-        </th>
+        </th>*@
         <th>
             Kategori
         </th>
         <th>
             Pris
         </th>
-        <th>
+        @*<th>
             Betalningsmetod
-        </th>
+        </th>*@
         <th>
             Ort
         </th>
-        <th>
+        @*<th>
             Adress
         </th>
         <th>
             Postnummer
-        </th>
+        </th>*@
         <th>
             Datum
         </th>
-        <th>
+        @*<th>
             Säljare
-        </th>
+        </th>*@
         <th></th>
     </tr>
 
@@ -65,27 +65,27 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.beskrivning)
                 </td>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.bild)
-                </td>
+                </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.kategori)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.pris)
                 </td>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.betalningsmetod)
-                </td>
+                </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.ort)
                 </td>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.adress)
-                </td>
-                <td>
+                </td>*@
+                @*<td>
                     @Html.DisplayFor(modelItem => item.postNr)
-                </td>
+                </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.datum)
                 </td>
@@ -95,20 +95,19 @@
                 @*<td>
                     @Html.DisplayFor(modelItem => item.koparID)
                 </td>*@
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.saljarID)
-                </td>
+                </td>*@
                 @*<td>
                     @Html.DisplayFor(modelItem => item.annonsID)
                 </td>*@
                 <td>
                     @if (@ViewBag.medalande != null)
                     {
-                    <button class="btn btn-default border-none" style="background:#3BD1FF"> @Html.ActionLink("Redigera", "Redigera", "Annons", new { id = item.annonsID}, null)</button>
+                    <button class="mybutton"> @Html.ActionLink("Redigera", "Redigera", "Annons", new { id = item.annonsID}, null)</button>
                     }
-                </td>
-                <td>
-                    <button class="btn btn-default border-none" style="background:#3BD1FF"> @Html.ActionLink("Detaljer", "Detaljer", "Annons", new { id = item.annonsID }, null)</button>
+               
+                    <button class="mybutton"> @Html.ActionLink("Detaljer", "Detaljer", "Annons", new { id = item.annonsID }, null)</button>
                 </td>
             </tr>
         }

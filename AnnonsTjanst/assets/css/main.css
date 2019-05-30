@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /*+---------------------------------------------------------------------+
   | style: GUI                                                          |
   | com: sass --watch sass/main.scss css/main.css                       |
@@ -354,6 +354,17 @@ summary {
   cursor: pointer;
 }
 
+a{
+    color:white;
+}
+
+.mybutton {
+    padding: 10px;
+    border-radius: 5px;
+    border-style: none;
+    background-color: #3BD1FF;
+    color: white;
+}
 template {
   display: none;
 }

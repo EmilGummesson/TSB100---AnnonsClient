@@ -4,129 +4,101 @@
     ViewBag.Title = "Detaljer";
 }
 
-<div>
-    <h4>Annons</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
+<table class="table">
+    <tr>
+        <th>
             Vara
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.annonsNamn)
-        </dd>
-
-        <dt>
-           Beskrivning
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.beskrivning)
-        </dd>
-
-        <dt>
-            Bild
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.bild)
-        </dd>
-
-        <dt>
+        </th>
+        <th>
+            Beskrivning
+        </th>
+        @*<th>
+                Bild
+            </th>*@
+        <th>
             Kategori
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.kategori)
-        </dd>
-
-        <dt>
+        </th>
+        <th>
             Pris
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.pris)
-        </dd>
-
-        <dt>
-            Betalningsmetod
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.betalningsmetod)
-        </dd>
-
-        <dt>
+        </th>
+        @*<th>
+                Betalningsmetod
+            </th>*@
+        <th>
             Ort
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ort)
-        </dd>
-
-        <dt>
+        </th>
+        <th>
             Adress
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.adress)
-        </dd>
-
-        <dt>
+        </th>
+        <th>
             Postnummer
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.postNr)
-        </dd>
-
-        <dt>
+        </th>
+        <th>
             Datum
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.datum)
-        </dd>
-
-        <dt>
+        </th>
+        <th>
             Status
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.status)
-        </dd>
-
-        <dt>
+        </th>
+        <th>
             Köpare
-        </dt>
-
-        <dd>
-            @ViewBag.kopNamn
-        </dd>
-
-        <dt>
+        </th>
+        <th>
             Säljare
-        </dt>
-
-        <dd>
-            @ViewBag.saljarNamn
-        </dd>
-
-        <dt>
-            AnnonsID
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.annonsID)
-        </dd>
-
-    </dl>
-</div>
+        </th>
+        @*<th>
+                AnnonsID
+            </th>*@
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.annonsNamn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.beskrivning)
+        </td>
+        @*<td>
+                @Html.DisplayFor(modelItem => modelItem.bild)
+            </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.kategori)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.pris)
+        </td>
+        @*<td>
+                @Html.DisplayFor(modelItem => modelItem.betalningsmetod)
+            </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.ort)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.adress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.postNr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.datum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.koparID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.saljarID)
+        </td>
+        @*<td>
+                @Html.DisplayFor(modelItem => modelItem.annonsID)
+            </td>*@
+    </tr>
+</table>
 <p>
     @if(@ViewBag.medalande != null)
     {
-    <button class="btn btn-default border-none" style="background:#3BD1FF">@Html.ActionLink("Köp", "Kop", new { id = Model.annonsID })</button>
-    <button class="btn btn-default border-none" style="background:#3BD1FF">@Html.ActionLink("Redigera", "Redigera", new { id = Model.annonsID })</button>
+    <button class="mybutton">@Html.ActionLink("Köp", "Kop", new { id = Model.annonsID })</button>
+    <button class="mybutton">@Html.ActionLink("Redigera", "Redigera", new { id = Model.annonsID })</button>
     }
-    <button class="btn btn-default border-none" style="background:#3BD1FF">@Html.ActionLink("Tillbaka till annonserna", "Index","Home")</button>
+    <button class="mybutton">@Html.ActionLink("Tillbaka till annonserna", "Index","Home")</button>
 </p>
