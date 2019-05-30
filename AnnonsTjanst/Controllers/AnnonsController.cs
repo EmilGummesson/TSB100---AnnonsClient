@@ -6,19 +6,20 @@ using System.Web.Mvc;
 
 namespace AnnonsTjanst.Controllers
 {
-
     public class AnnonsController : Controller
     {
         public ActionResult Skapa()
         {
+            //Kollar sessionsID || dirigerar om användaren till inloggningssida om denne inte är inloggad
             if (Session["profilId"] != null)
             {
-                int idny = Convert.ToInt32(Session["profilId"]);
+                int tempID = Convert.ToInt32(Session["profilId"]);
                 loginReferences.InloggningServiceClient logclient = new loginReferences.InloggningServiceClient();
-                if (logclient.VerifieraInloggning(idny))
+                if (logclient.VerifieraInloggning(tempID))
                 {
 
                 }
+                //Är användaren inte inloggad kommer denne att dirigeras om till inloggningssidan.
                 else
                 {
                     string url = "http://193.10.202.74/Anvandare/Profil/VisaProfil";
@@ -76,18 +77,20 @@ namespace AnnonsTjanst.Controllers
         }
         public ActionResult Detaljer(int id)
         {
+            //Kollar sessionsID
             loginReferences.InloggningServiceClient logclient = new loginReferences.InloggningServiceClient();
             if (Session["profilId"] != null)
             {
-                int idny = Convert.ToInt32(Session["profilId"]);
+                int tempID = Convert.ToInt32(Session["profilId"]);
                 
-                if (logclient.VerifieraInloggning(idny))
+                if (logclient.VerifieraInloggning(tempID))
                 {
-                    var anvendare = logclient.VisaAnvandarInfoId(idny);
+                    var anvendare = logclient.VisaAnvandarInfoId(tempID);
                     ViewBag.medalande = anvendare.Anvandarnamn;
                 }
             }
             ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
+            //Hämtar annons för aktivt ID
             var annons = client.HamtaAnnons(id);
             //Hämtar användarnamn från objekt av Användare. Tar id som inparameter.
             var saljNamn = logclient.VisaAnvandarInfoId(client.HamtaAnnons(id).saljarID).Anvandarnamn;
@@ -96,30 +99,37 @@ namespace AnnonsTjanst.Controllers
             {
                 saljNamn = "Säljaren kunde inte hittas";
             }
+            //Visar köpare på såld artikel
+            //Inte relevant för vanliga användare då sålda artiklar inte kommer visas för dessa || adminfunktionalitet
             var kopNamn = client.HamtaAnnons(id).koparID;
             if ( kopNamn == null)
             {
                 kopNamn = "Köparen kunde inte hittas";
             }
+            //Skickar med namn på sälare/köpare till vyn i form av Viewbag
             ViewBag.saljarNamn = saljNamn;
             ViewBag.kopNamn = kopNamn;
+
             return View(annons);
         }
         public ActionResult Kop(int id)
         {
+            //Kollar sessionsID
             loginReferences.InloggningServiceClient logclient = new loginReferences.InloggningServiceClient();
             if (Session["profilId"] != null)
             {
-                int idny = Convert.ToInt32(Session["profilId"]);
+                int tempID = Convert.ToInt32(Session["profilId"]);
                 
-                if (logclient.VerifieraInloggning(idny))
+                if (logclient.VerifieraInloggning(tempID))
                 {
 
                 }
+                //Omirigering till inloggningssidan.
                 else
                 {
                     string url = "http://193.10.202.74/Anvandare/Profil/VisaProfil";
                     Response.Redirect(url);
+
                     return View();
                 }
             }
@@ -127,6 +137,7 @@ namespace AnnonsTjanst.Controllers
             {
                 string url = "http://193.10.202.74/Anvandare/Profil/VisaProfil";
                 Response.Redirect(url);
+
                 return View();
             }
             
@@ -150,6 +161,7 @@ namespace AnnonsTjanst.Controllers
         public ActionResult Redigera(int id)
         {
             ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
+            //Hämtar annons för aktivt ID
             var result = client.HamtaAnnons(id);
 
             return View(result);
@@ -159,10 +171,10 @@ namespace AnnonsTjanst.Controllers
         {
             ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
             annons.kategori = Request.Form["Kategorier"].ToString();
+            //Uppdaterar databas med nya värden
             var result = client.UppdateraAnnons(annons);
+
             return RedirectToAction("Index", "Home");
         }
-
-
     }
 }

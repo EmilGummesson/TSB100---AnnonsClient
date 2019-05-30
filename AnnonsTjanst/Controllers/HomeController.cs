@@ -8,23 +8,23 @@ namespace AnnonsTjanst.Controllers
 {
     public class HomeController : Controller
     {
-
-
-
         public ActionResult Index(int? id)
         {
+            //Kollar sessionsID || dirigerar om användaren till inloggningssida om denne inte är inloggad
             if (id == null)
             {
                 try
                 {
-                    int nyid = 11;
+                    int tempID = 11;
                     loginReferences.InloggningServiceClient logclient = new loginReferences.InloggningServiceClient();
                     if (Session["profilId"] != null)
                     {
                         //Converting your session variable value to integer
 
-                        nyid = Convert.ToInt32(Session["profilId"]);//ut komenterad kod pga problem med sekson   Convert.ToInt32(id1.Text); ((int)Session["profilId"]);
-                        var anvendare = logclient.VisaAnvandarInfoId(nyid);
+                        tempID = Convert.ToInt32(Session["profilId"]);
+                        //Koden är utkommenterad pga problem med session
+                        //Convert.ToInt32(id1.Text); ((int)Session["profilId"]);
+                        var anvendare = logclient.VisaAnvandarInfoId(tempID);
                         ViewBag.medalande = anvendare.Anvandarnamn;
                     }
 
@@ -37,15 +37,16 @@ namespace AnnonsTjanst.Controllers
             }
             else
             {
-                int idny = int.Parse(id.ToString());
+                int tempID = int.Parse(id.ToString());
                 loginReferences.InloggningServiceClient logclient = new loginReferences.InloggningServiceClient();
-                if (logclient.VerifieraInloggning(idny))
+                if (logclient.VerifieraInloggning(tempID))
                 {
-                    Session["profilId"] = idny;
-                    var anvendare = logclient.VisaAnvandarInfoId(idny);
+                    Session["profilId"] = tempID;
+                    var anvendare = logclient.VisaAnvandarInfoId(tempID);
                     ViewBag.medalande = anvendare.Anvandarnamn;
 
                 }
+                //Är användaren inte inloggad kommer denne att dirigeras om till inloggningssidan.
                 else
                 {
                     string url= "http://193.10.202.74/Anvandare/Profil/VisaProfil";
@@ -57,7 +58,7 @@ namespace AnnonsTjanst.Controllers
             return View(client.HamtaAllaAnnonser());
         }
 
-        public ActionResult logain()
+        public ActionResult Login()
         {
             loginReferences.InloggningServiceClient logclient = new loginReferences.InloggningServiceClient();
             var test = logclient.VerifieraInloggning(1337);
@@ -65,7 +66,7 @@ namespace AnnonsTjanst.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult logain(string anvandarnamn, string losenord, string behorrighet)
+        public ActionResult Login(string anvandarnamn, string losenord, string behorrighet)
         {
             if (behorrighet == null)
             {
@@ -77,7 +78,8 @@ namespace AnnonsTjanst.Controllers
             if (anvinfo != null)
             {
 
-                Session["profilId"] = anvinfo.ProfilId.ToString(); //) ["profilId"] = Convert.ToInt32(anvinfo.ProfilId.ToString());
+                Session["profilId"] = anvinfo.ProfilId.ToString(); 
+                //["profilId"] = Convert.ToInt32(anvinfo.ProfilId.ToString());
                 Session["inlogad"] = "true";
             }
             return RedirectToAction("Index");
