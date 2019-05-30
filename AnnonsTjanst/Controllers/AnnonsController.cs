@@ -119,7 +119,7 @@ namespace AnnonsTjanst.Controllers
                 saljNamn = "Säljaren kunde inte hittas";
             }
             //Inte relevant för vanliga användare då sålda artiklar inte kommer visas för dessa || adminfunktionalitet
-            var kopNamn = client.HamtaAnnons(id).koparID;
+            var kopNamn = logclient.VisaAnvandarInfoId(int.Parse(client.HamtaAnnons(id).koparID)).Anvandarnamn;
             if ( kopNamn == null)
             {
                 kopNamn = "Köparen kunde inte hittas";
